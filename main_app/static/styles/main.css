@@ -1,9 +1,16 @@
 
-
+body{
+    
+    background-image:
+ 
+  url('../images/brooklyn.jpg');
+  
+}
 .navbar{
 background-color: #ED2945;
 color:#F9F9F9;
 height: 80px;
+opacity: 0.9;
 }
 
 a{
@@ -33,7 +40,17 @@ font-size: 35px !important;
 line-height: 25px !important;
 }
 
+.container{
+margin: 20px 20px;
+background-color: aqua;
+}
 
+.column{
+
+width:100px !important;
+height:200px !important;
+
+}
 
 
 
