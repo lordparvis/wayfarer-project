@@ -1,0 +1,39 @@
+
+
+.navbar{
+background-color: #ED2945;
+color:#F9F9F9;
+height: 80px;
+}
+
+a{
+color:#F9F9F9;
+width: 100px;
+height: 80px;
+text-align: center;
+line-height:60px;
+font-size:18px !important;
+
+
+}
+
+a:hover{
+background-color: #C22439 ;
+color: #F9F9F9;
+}
+
+h2{
+width:200px;
+height: 45px;
+letter-spacing: 0.2em;
+margin: 20px 20px;
+text-align: center;
+padding: 0px;
+font-size: 35px !important;
+line-height: 25px !important;
+}
+
+
+
+
+
