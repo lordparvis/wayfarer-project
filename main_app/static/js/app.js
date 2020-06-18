@@ -1,14 +1,31 @@
 
-const $link = $('.nav-link')
+// const $link = $('.nav-link')
 
 
-function pop() {
+// function pop() {
 
 
-    $('h2').toggle()
+//     $('h2').toggle()
 
 
-}
+// }
 
 
-$link.on('click', pop)
+// $link.on('click', pop)
+
+
+// const $signup = $('.signup-btn');
+// const $loginPopUp = $('.login-popup')
+
+// $signup.on("click", function (event) {
+
+//     $('.sign').show()
+
+// });
+// $('#myModal').modal({
+//     keyboard: false
+// })
+$('#myModal').modal('show')
+$('#myModal').modal('hide')
+$('#myModal').modal('toggle')
+
