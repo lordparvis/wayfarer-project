@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Profile
+
 
 # Create your views here.
 
@@ -9,5 +11,7 @@ def home(request):
 # Profile 
 
 def profile(request):
-    return render(request,'profile/profile.html')
+    profile=Profile.objects.all()
+    context={'profile':profile}
+    return render(request,'profile/profile.html',context)
 
