@@ -1,48 +1,96 @@
 {% extends 'base.html'%}
-
+{%load static%}
 
 
 {%block content%}
+<!-- <div class='log-in'>
+    <input type="email" name="Email" id="">
+    <input type="image" src="" alt="">
+    <input type="password" name="password" id="">
+    <input type="submit" value="login">
 
-<h1>HIIII</h1>
+
+</div> -->
+
+<!-- The slide to create img -->
+<slider>
+    <slide>
+        <p>Los Angeles</p>
+    </slide>
+
+    <slide>
+        <p>San Francisco</p>
+    </slide>
+
+    <slide>
+        <p>Brooklyn</p>
+
+    </slide>
+
+    <slide>
+        <p>日本</p>
+    </slide>
+
+</slider>
+<!-- The header -->
+<div class='about'>
+    <h1> WAYFARER</h1>
+
+</div>
+
+<!-- The Card Section -->
 
 <div class="container">
-    <div class="col-sm">
-        <div class="col-sm column">
-            One of three columns
+
+    <div class="card" style="width: 20rem;">
+
+        <div class="card-body">
+            <span class='topic'>About Us</span>
+            <br>
+            <hr>
+            <br>
+            <p class="card-text">
+                Our application provide the best feature for people who is looking
+                for places to go or wondering what location would be their next destination.
+
+            </p>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="col-sm">
-        <div class="col-sm column">
-            One of three
+    <div class="card" style="width: 20rem;">
+
+        <div class="card-body">
+            <span class='topic'>Community</span>
+            <br>
+            <hr>
+            <br>
+            <p class="card-text">
+                Our community, is full with fun,energetic people.
+                They will give you the best review and advice that make sure you have a blast.
+                Don't hesitate to give advice to others!
+            </p>
         </div>
     </div>
-</div>
+    <div class="card" style="width: 20rem;">
 
-<div class="container">
-    <div class="col-sm">
-        <div class="col-sm column">
-            One of
+        <div class="card-body">
+            <span class='topic'> Location</span>
+            <br>
+            <hr>
+            <br>
+            <p class="card-text">
+                Currently, we holding 4 big location, that you can discover!
+                <br>
+                1) Brooklyn
+                <br>
+                2) Los Angeles
+                <br>
+                3) San Francisco
+                <br>
+                4) Japan
+            </p>
         </div>
     </div>
+
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 {%endblock%}
