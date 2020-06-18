@@ -1,10 +1,10 @@
 
 body{
     
-    background-image:
- 
-  url('../images/brooklyn.jpg');
-  
+  background-image:
+
+url('../images/brooklyn.jpg');
+
 }
 .navbar{
 background-color: #ED2945;
@@ -51,6 +51,5 @@ width:100px !important;
 height:200px !important;
 
 }
-
 
 
