@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+
+{%block content%}
+
+
+{%for profiles in profile%}
+<p> name: {{profiles.name}}</p>
+<p> name: {{profiles.city}}</p>
+<p> name: {{profiles.date}}</p>
+
+{%endfor%}
+
+
+{% endblock%}
