@@ -1,14 +1,7 @@
+// const $signup = $('.signup-btn');
 
-const $link = $('.nav-link')
+// const $loginPopUp = $('.login-popup')
 
-
-function pop() {
-
-
-    $('h2').toggle()
-
-
-}
-
-
-$link.on('click', pop)
+// $signup.on("click", function(event){
+//     $loginPopUp.toggle();
+// });

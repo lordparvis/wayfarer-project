@@ -17,7 +17,7 @@ def home(request):
 def profile(request):
     profile=Profile.objects.all()
     context={'profile':profile}
-    return render(request,'profile/profile.html',context)
+    # return render(request,'profile/profile.html',context)
 
 # Sign Up
 
@@ -26,9 +26,9 @@ def signup(request):
         form=UserCreationForm(request.POST)
         if form.is_valid():
             user=form.save()
-            return redirect('home')
+            # return redirect('home')
     else:
         error_message='Invalid Sign Up'
     form=UserCreationForm()
     context={'form':form}
-    return render(request,'registration/signup.html',context)
+    return render(request,'home.html',context)
