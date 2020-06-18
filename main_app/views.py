@@ -13,7 +13,7 @@ def home(request):
     return render(request,'home.html')
 
 # Profile 
-
+@login_required
 def profile(request):
     profile=Profile.objects.all()
     context={'profile':profile}
