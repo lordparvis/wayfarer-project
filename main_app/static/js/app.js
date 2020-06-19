@@ -28,4 +28,3 @@
 $('#myModal').modal('show')
 $('#myModal').modal('hide')
 $('#myModal').modal('toggle')
-
