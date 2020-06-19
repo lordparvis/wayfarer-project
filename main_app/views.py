@@ -6,8 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 from .models import Profile
+from .models import Post
 
-
+from .forms import Post_Form
 
 # Create your views here.
 
@@ -15,17 +16,20 @@ def home(request):
     return render(request,'home.html')
 
 # Profile 
+
 @login_required
 def profile(request):
     if request.user.is_authenticated:
-        user=User.objects.all()
+        user=request.user
         profile=Profile.objects.all()
         context={'profile':profile,'user':user}
-        return render(request,'profile/profile.html',context)
-    else:
-        return redirect('home')
+    return render(request,'profile/profile.html',context)
+  
 
-
+def post(request):
+    post=Post_Form(request.POST)
+    context={'post':post}
+    return render(request,'post.html',context)
 
 
 
