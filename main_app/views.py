@@ -6,8 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 from .models import Profile
+from .models import Post
 
-
+from .forms import Post_Form
 
 # Create your views here.
 
@@ -15,25 +16,25 @@ def home(request):
     return render(request,'home.html')
 
 # Profile 
+
 @login_required
 def profile(request):
-    profile=Profile.objects.all()
-    context={'profile':profile}
+    if request.user.is_authenticated:
+        user=request.user
+        profile=Profile.objects.all()
+        context={'profile':profile,'user':user}
     return render(request,'profile/profile.html',context)
+  
+
+def post(request):
+    post=Post_Form(request.POST)
+    context={'post':post}
+    return render(request,'post.html',context)
+
+
 
 # Sign Up
 
-# def signup(request):
-#     if request.method == 'POST':
-#         form=UserCreationForm(request.POST)
-#         if form.is_valid():
-#             user=form.save()
-#             return redirect('home')
-#     else:
-#         error_message='Invalid Sign Up'
-#     form=UserCreationForm()
-#     context={'form':form}
-#     return render(request,'registration/signup.html',context)
 
 pass_err_msg = ''
 email_err_msg = ''
@@ -43,6 +44,8 @@ username_err_msg = ''
 
 def signup(request):
     if request.method=='POST':
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
         username_form=request.POST['username']
         email_form=request.POST['email']
         password=request.POST['password']
@@ -65,8 +68,9 @@ def signup(request):
 
                         username=username_form,
                         email=email_form,
-                        password=password
-
+                        password=password,
+                        first_name=first_name, 
+                        last_name=last_name
                     )
                 user.save()
                 return redirect('home')
@@ -78,7 +82,7 @@ def signup(request):
         
         return render(request,'home.html')
 
-
+# LOGIN 
 def login(request):
     if request.method == 'POST':
         username_form=request.POST['username']

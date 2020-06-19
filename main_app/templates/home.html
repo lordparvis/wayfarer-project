@@ -5,35 +5,6 @@
 {%block content%}
 
 
-<!-- <div class='sign'>
-    {% if error %}
-    <p style="background-color: firebrick;">{{error}}</p>
-    {% endif %} -->
-
-<!-- <section class="form-section">
-        <form action="{% url 'signup' %}" method="POST" class="artist-form">
-            {% csrf_token %}
-            <p>
-                <label for="email">Email</label>
-                <input type="email" name="email" maxlength="25" minlength="2" required>
-            </p>
-            <p>
-                <label for="username">Username</label>
-                <input type="text" name="username" maxlength="25" minlength="2" required>
-            </p>
-            <p>
-                <label for="password">Password</label>
-                <input type="password" name="password" maxlength="25" minlength="4" required>
-            </p>
-            <p>
-                <label for="password2">Confirm Password</label>
-                <input type="password" name="password2" maxlength="25" minlength="4" required>
-            </p>
-            <button type="submit"> Register </button>
-        </form>
-    </section>
-</div> -->
-
 
 
 <!-- Modal -->
@@ -55,8 +26,20 @@
 
                 <div class="md-form mb-5">
 
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="text" id="defaultForm-firsts" name='first_name' class="form-control validate"
+                        maxlength="25" minlength="2" required>
+                    <label data-error="wrong" data-success="right" for="first_name">First Name</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="text" id="defaultForm-last" name='last_name' class="form-control validate"
+                        maxlength="25" minlength="2" required>
+                    <label data-error="wrong" data-success="right" for="last_name">Last Name</label>
+                </div>
+                <div class="md-form mb-5">
                     {% if email_err_msg %}
-                        <p class="text-danger">{{email_err_msg}}</p>
+                    <p class="text-danger">{{email_err_msg}}</p>
                     {% endif %}
 
                     <i class="fas fa-envelope prefix grey-text"></i>
@@ -67,7 +50,7 @@
                 <div class="md-form mb-5">
 
                     {% if username_err_msg %}
-                        <p class="text-danger">{{username_err_msg}}</p>
+                    <p class="text-danger">{{username_err_msg}}</p>
                     {% endif %}
 
                     <i class="fas fa-envelope prefix grey-text"></i>
@@ -78,7 +61,7 @@
                 <div class="md-form mb-4">
 
                     {% if pass_err_msg %}
-                        <p class="text-danger">{{pass_err_msg}}</p>
+                    <p class="text-danger">{{pass_err_msg}}</p>
                     {% endif %}
 
                     <i class="fas fa-lock prefix grey-text"></i>
@@ -114,15 +97,15 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    
-                    
+
+
 
             </div>
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
 
                     {% if login_error %}
-                        <p class="text-danger">{{login_err_msg}}</p>
+                    <p class="text-danger">{{login_err_msg}}</p>
                     {% endif %}
 
                     <i class="fas fa-envelope prefix grey-text"></i>
@@ -175,7 +158,7 @@
 
 <!-- The Card Section -->
 
-<div class="container">
+<!-- <div class="container">
 
     <div class="card" style="width: 20rem;">
 
@@ -224,23 +207,23 @@
                 4) Japan
             </p>
         </div>
-    </div>
+    </div> -->
 
 </div>
 {% if login_error %}
-    <script>
-        $(document).ready(function(){
-            $("#modalLoginForm").modal('show');
-        });
-    </script>
+<script>
+    $(document).ready(function () {
+        $("#modalLoginForm").modal('show');
+    });
+</script>
 {% endif %}
 
 {% if signUp_error %}
-    <script>
-        $(document).ready(function(){
-            $("#modalSignUpForm").modal('show');
-        });
-    </script>
+<script>
+    $(document).ready(function () {
+        $("#modalSignUpForm").modal('show');
+    });
+</script>
 {% endif %}
 
 {%endblock%}
