@@ -44,11 +44,11 @@ def signup(request):
 
             if User.objects.filter(username=username_form).exists():
                 context={'error':'User already exist'}
-                return render(request,'registration/signup.html',context)
+                return render(request,'home.html',context)
             else:
                 if User.objects.filter(email=email_form).exists():
                     context={'error':'Email already exist'}
-                    return render(request,'registration/signup.html',context)
+                    return render(request,'home.html',context)
                 else:
                     user=User.objects.create_user(
 
@@ -61,10 +61,10 @@ def signup(request):
                 return redirect('home')
         else:
             context={'error': 'Password Invalid'}
-            return render(request,'registration/signup.html',context)
+            return render(request,'home.html',context)
     else:
         
-        return render(request,'registration/signup.html')
+        return render(request,'home.html')
 
 
 
