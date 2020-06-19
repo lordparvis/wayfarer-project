@@ -5,46 +5,19 @@
 {%block content%}
 
 
-<!-- <div class='sign'>
-    {% if error %}
-    <p style="background-color: firebrick;">{{error}}</p>
-    {% endif %} -->
-
-<!-- <section class="form-section">
-        <form action="{% url 'signup' %}" method="POST" class="artist-form">
-            {% csrf_token %}
-            <p>
-                <label for="email">Email</label>
-                <input type="email" name="email" maxlength="25" minlength="2" required>
-            </p>
-            <p>
-                <label for="username">Username</label>
-                <input type="text" name="username" maxlength="25" minlength="2" required>
-            </p>
-            <p>
-                <label for="password">Password</label>
-                <input type="password" name="password" maxlength="25" minlength="4" required>
-            </p>
-            <p>
-                <label for="password2">Confirm Password</label>
-                <input type="password" name="password2" maxlength="25" minlength="4" required>
-            </p>
-            <button type="submit"> Register </button>
-        </form>
-    </section>
-</div> -->
 
 
 
-<!-- Modal -->
+
+<!-- Sign Up -->
 <div class="modal fade" id="modalSignUpForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
                 <h4 class="modal-title w-100 font-weight-bold">Sign Up</h4>
-
                 <form action="{% url 'signup' %}" method="POST">
+
                     {% csrf_token %}
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -55,21 +28,35 @@
 
                 <div class="md-form mb-5">
                     <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="text" id="defaultForm-first_name" name='first_name' class="form-control validate"
+                        maxlength="25" minlength="2" required>
+                    <label data-error="wrong" data-success="right" for="first_name">First Name</label>
+                </div>
+
+                <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="text" id="defaultForm-last_name" name='last_name' class="form-control validate"
+                        maxlength="25" minlength="2" required>
+                    <label data-error="wrong" data-success="right" for="last_name">Last Name</label>
+                </div>
+
+                <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
                     <input type="email" id="defaultForm-email" name='email' class="form-control validate" maxlength="25"
                         minlength="2" required>
-                    <label data-error="wrong" data-success="right" for="email">Your email</label>
+                    <label data-error="wrong" data-success="right" for="email">Email</label>
                 </div>
                 <div class="md-form mb-5">
                     <i class="fas fa-envelope prefix grey-text"></i>
                     <input type="text" id="defaultForm-username" name='username' class="form-control validate"
                         maxlength="25" minlength="2" required>
-                    <label data-error="wrong" data-success="right" for="username">Your Username</label>
+                    <label data-error="wrong" data-success="right" for="username">Username</label>
                 </div>
                 <div class="md-form mb-4">
                     <i class="fas fa-lock prefix grey-text"></i>
                     <input type="password" id="defaultForm-pass" name='password' class="form-control validate"
                         maxlength="25" minlength="4" required>
-                    <label data-error="wrong" data-success="right" for="password">Your password</label>
+                    <label data-error="wrong" data-success="right" for="password">New Password</label>
                 </div>
                 <div class="md-form mb-4">
                     <i class="fas fa-lock prefix grey-text"></i>
@@ -87,6 +74,7 @@
     </div>
 </div>
 
+<!-- Log In -->
 <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -111,7 +99,7 @@
                     <i class="fas fa-lock prefix grey-text"></i>
                     <input type="password" id="defaultForm-pass" name='password' class="form-control validate"
                         maxlength="25" minlength="4" required>
-                    <label data-error="wrong" data-success="right" for="password">Your password</label>
+                    <label data-error="wrong" data-success="right" for="password">Your Password</label>
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-center">
@@ -146,17 +134,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- The header -->
 <div class='about'>
     <h1> WAYFARER</h1>
-
 </div>
 <!-- start -->
 
 
 <!-- The Card Section -->
 
-<div class="container-2">
+<!-- <div class="container-2">
 
     <div class="card" style="width: 20rem;">
 
@@ -207,6 +227,61 @@
         </div>
     </div>
 
-</div>
+</div> -->
+
+
+<!-- <div class="card-deck">
+    <div class="card">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                additional
+                content. This content is a little bit longer.</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional
+                content.</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                additional
+                content. This card has even longer content than the first to show that equal height action.
+            </p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {%endblock%}

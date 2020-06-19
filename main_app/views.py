@@ -17,9 +17,13 @@ def home(request):
 # Profile 
 @login_required
 def profile(request):
-    profile=Profile.objects.all()
-    context={'profile':profile}
-    return render(request,'profile/profile.html',context)
+    if request.user.is_authenticated:
+        user=User.objects.all()
+        profile=Profile.objects.all()
+        context={'profile':profile,'user':user}
+        return render(request,'profile/profile.html',context)
+    else:
+        return redirect('home')
 
 # Sign Up
 
@@ -37,6 +41,8 @@ def profile(request):
 
 def signup(request):
     if request.method=='POST':
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
         username_form=request.POST['username']
         email_form=request.POST['email']
         password=request.POST['password']
@@ -55,8 +61,9 @@ def signup(request):
 
                         username=username_form,
                         email=email_form,
-                        password=password
-
+                        password=password,
+                        first_name=first_name, 
+                        last_name=last_name
                     )
                 user.save()
                 return redirect('home')
@@ -81,6 +88,7 @@ def login(request):
             return redirect('profile')
         else:
             context = {'error': 'Invalid Credentials'}
-            return render(request, 'registration/login.html', context)
+            return render(request, 'home.html', context)
     else:
         return render(request, 'registration/login.html')
+

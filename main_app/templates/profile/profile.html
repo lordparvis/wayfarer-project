@@ -4,13 +4,20 @@
 {%block content%}
 
 
-{%for profiles in profile%}
+<!-- {%for profiles in profile%}
 <p> name: {{profiles.name}}</p>
 <p> name: {{profiles.city}}</p>
 <p> name: {{profiles.date}}</p>
 
-{%endfor%}
 
+{%endfor%} -->
+
+{% for users in user%}
+
+<p> name: {{users.email}}</p>
+<p> name: {{users.username}}</p>
+
+{%endfor%}
 
 
 
