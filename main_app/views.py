@@ -47,16 +47,20 @@ def signup(request):
         email_form=request.POST['email']
         password=request.POST['password']
         password2=request.POST['password2']
+        signUp_error = False
         if password ==password2:
 
             if User.objects.filter(username=username_form).exists():
-                context={'error':'User already exist'}
+                # signUp_error = True
+                context={'username_err_msg':'Username already exists', 'signUp_error':'signUp_error'}
                 return render(request,'home.html',context)
             else:
                 if User.objects.filter(email=email_form).exists():
-                    context={'error':'Email already exist'}
+                    signUp_error = True
+                    context={'email_err_msg':'Email already exists', 'signUp_error':'signUp_error'}
                     return render(request,'home.html',context)
                 else:
+                    signUp_error = False
                     user=User.objects.create_user(
 
                         username=username_form,
@@ -68,7 +72,8 @@ def signup(request):
                 user.save()
                 return redirect('home')
         else:
-            context={'error': 'Password Invalid'}
+            # signUp_error = True
+            context={'pass_err_msg': 'Passwords Do Not Match', 'signUp_error':'signUp_error'}
             return render(request,'home.html',context)
     else:
         
@@ -81,14 +86,18 @@ def login(request):
         password_form=request.POST['password']
         # authenticating user
         user = auth.authenticate(username=username_form, password=password_form)
+        login_error = False
         if user is not None:
+            login_error = False
             #login
             auth.login(request, user)
             #redirect
             return redirect('profile')
         else:
-            context = {'error': 'Invalid Credentials'}
+            login_error= True
+            print(f"{login_error}")
+
+            context = {'login_err_msg': 'Invalid Credentials', 'login_error': 'login_error'}
             return render(request, 'home.html', context)
     else:
-        return render(request, 'registration/login.html')
-
+        return render(request, 'home.html')

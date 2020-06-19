@@ -27,6 +27,11 @@
 
 
                 <div class="md-form mb-5">
+
+                    {% if True %}
+                    <p class="text-danger">{{email_err_msg}}</p>
+                    {% endif %}
+
                     <i class="fas fa-envelope prefix grey-text"></i>
                     <input type="text" id="defaultForm-first_name" name='first_name' class="form-control validate"
                         maxlength="25" minlength="2" required>
@@ -74,8 +79,7 @@
     </div>
 </div>
 
-<!-- Log In -->
-<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal fade show" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -87,9 +91,17 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
+
+
+
             </div>
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
+
+                    {% if login_error %}
+                    <p class="text-danger">{{login_err_msg}}</p>
+                    {% endif %}
+
                     <i class="fas fa-envelope prefix grey-text"></i>
                     <input type="text" id="defaultForm-username" name='username' class="form-control validate"
                         maxlength="25" minlength="2" required>
@@ -103,7 +115,7 @@
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-center">
-                <button class="btn btn-default">Login</button>
+                <button id="login-submit" class="btn btn-default">Login</button>
                 </form>
             </div>
         </div>
@@ -134,154 +146,27 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- The header -->
 <div class='about'>
     <h1> WAYFARER</h1>
 </div>
-<!-- start -->
-
-
-<!-- The Card Section -->
-
-<!-- <div class="container-2">
-
-    <div class="card" style="width: 20rem;">
-
-        <div class="card-body">
-            <span class='topic'>About Us</span>
-            <br>
-            <hr>
-            <br>
-            <p class="card-text">
-                Our application provide the best feature for people who is looking
-                for places to go or wondering what location would be their next destination.
-
-            </p>
-        </div>
-    </div>
-    <div class="card" style="width: 20rem;">
-
-        <div class="card-body">
-            <span class='topic'>Community</span>
-            <br>
-            <hr>
-            <br>
-            <p class="card-text">
-                Our community, is full with fun,energetic people.
-                They will give you the best review and advice that make sure you have a blast.
-                Don't hesitate to give advice to others!
-            </p>
-        </div>
-    </div>
-    <div class="card" style="width: 20rem;">
-
-        <div class="card-body">
-            <span class='topic'> Location</span>
-            <br>
-            <hr>
-            <br>
-            <p class="card-text">
-                Currently, we holding 4 big location, that you can discover!
-                <br>
-                1) Brooklyn
-                <br>
-                2) Los Angeles
-                <br>
-                3) San Francisco
-                <br>
-                4) Japan
-            </p>
-        </div>
-    </div>
-
-</div> -->
-
-
-<!-- <div class="card-deck">
-    <div class="card">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                additional
-                content. This content is a little bit longer.</p>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-    </div>
-
-
-    <div class="card">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional
-                content.</p>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-    </div>
-    <div class="card">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                additional
-                content. This card has even longer content than the first to show that equal height action.
-            </p>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-    </div>
-</div> -->
 
 
 
+{% if login_error %}
+<script>
+    $(document).ready(function () {
+        $("#modalLoginForm").modal('show');
+    });
+</script>
+{% endif %}
 
-
-
-
-
-
-
-
-
-
+{% if signUp_error %}
+<script>
+    $(document).ready(function () {
+        $("#modalSignUpForm").modal('show');
+    });
+</script>
+{% endif %}
 
 {%endblock%}
