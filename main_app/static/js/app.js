@@ -25,6 +25,10 @@
 // $('#myModal').modal({
 //     keyboard: false
 // })
-$('#myModal').modal('show')
+/* $('#myModal').modal('show')
 $('#myModal').modal('hide')
-$('#myModal').modal('toggle')
+$('#myModal').modal('toggle') */
+
+$('#login-submit').click(event, () => {
+    $()
+});
