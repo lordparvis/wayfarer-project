@@ -25,19 +25,12 @@ def profile(request):
     else:
         return redirect('home')
 
+
+
+
+
 # Sign Up
 
-# def signup(request):
-#     if request.method == 'POST':
-#         form=UserCreationForm(request.POST)
-#         if form.is_valid():
-#             user=form.save()
-#             return redirect('home')
-#     else:
-#         error_message='Invalid Sign Up'
-#     form=UserCreationForm()
-#     context={'form':form}
-#     return render(request,'registration/signup.html',context)
 
 def signup(request):
     if request.method=='POST':
@@ -79,7 +72,7 @@ def signup(request):
         
         return render(request,'home.html')
 
-
+# LOGIN 
 def login(request):
     if request.method == 'POST':
         username_form=request.POST['username']
