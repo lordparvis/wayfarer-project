@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import auth
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -14,7 +15,7 @@ def home(request):
     return render(request,'home.html')
 
 # Profile 
-
+@login_required
 def profile(request):
     profile=Profile.objects.all()
     context={'profile':profile}
@@ -67,10 +68,19 @@ def signup(request):
         return render(request,'home.html')
 
 
-
-
 def login(request):
     if request.method == 'POST':
         username_form=request.POST['username']
         password_form=request.POST['password']
+        # authenticating user
         user = auth.authenticate(username=username_form, password=password_form)
+        if user is not None:
+            #login
+            auth.login(request, user)
+            #redirect
+            return redirect('profile')
+        else:
+            context = {'error': 'Invalid Credentials'}
+            return render(request, 'registration/login.html', context)
+    else:
+        return render(request, 'registration/login.html')

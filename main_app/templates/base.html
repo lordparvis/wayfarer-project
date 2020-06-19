@@ -37,44 +37,23 @@
             </h2>
 
         </div>
+        <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+                <li class="nav-item">
+                    <!-- <a href="" class="nav-link signup-btn">Sign Up</a> -->
+    <a href="" class=" nav-link btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalSignUpForm">
+        Sign Up
+    </a>
 
-        <ul class="navbar-nav ml-auto flex-nowrap">
-            <li class="nav-item">
-                <a href="" class=" nav-link btn btn-default btn-rounded mb-4" data-toggle="modal"
-                    data-target="#modalLoginForm"> Sign Up
-                </a>
+    </li>
+    <li class="nav-item">
+        <a href="" class=" nav-link btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">
+            Login
+        </a>
+    </li>
 
-            </li>
-            <li class="nav-item">
-                <a href="{%url 'login' %}" class="nav-link">Login</a>
-            </li>
-
-        </ul>
-
-    </nav> -->
-
-
-
-
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger brand" href="#page-top">WAYFARER</a>
-            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span> -->
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger form" href="">Sign Up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger form" href="">Login</a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
+    </ul>
+    </div>
     </nav>
 
     {% block content%}
