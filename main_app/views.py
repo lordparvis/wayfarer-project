@@ -32,6 +32,12 @@ def profile(request):
 # Sign Up
 
 
+pass_err_msg = ''
+email_err_msg = ''
+username_err_msg = ''
+
+
+
 def signup(request):
     if request.method=='POST':
         first_name = request.POST['first_name']
@@ -45,12 +51,12 @@ def signup(request):
 
             if User.objects.filter(username=username_form).exists():
                 # signUp_error = True
-                context={'username_err_msg':'Username already exists', 'signUp_error':'signUp_error'}
+                context={'username_err_msg':'Username already exists', 'signUp_error':'signUp_error', 'username_err_msg':'Username already in use'}
                 return render(request,'home.html',context)
             else:
                 if User.objects.filter(email=email_form).exists():
                     signUp_error = True
-                    context={'email_err_msg':'Email already exists', 'signUp_error':'signUp_error'}
+                    context = {'email_err_msg': 'Email already linked to account', 'signUp_error': 'signUp_error'}
                     return render(request,'home.html',context)
                 else:
                     signUp_error = False
@@ -66,7 +72,7 @@ def signup(request):
                 return redirect('home')
         else:
             # signUp_error = True
-            context={'pass_err_msg': 'Passwords Do Not Match', 'signUp_error':'signUp_error'}
+            context={'pass_err_msg': 'Passwords Do Not Match', 'signUp_error':'signUp_error', 'pass_err_msg':'Passwords do not match'}
             return render(request,'home.html',context)
     else:
         
@@ -89,7 +95,6 @@ def login(request):
         else:
             login_error= True
             print(f"{login_error}")
-
             context = {'login_err_msg': 'Invalid Credentials', 'login_error': 'login_error'}
             return render(request, 'home.html', context)
     else:

@@ -28,7 +28,7 @@
 
                 <div class="md-form mb-5">
 
-                    {% if True %}
+                    {% if email_err_msg %}
                     <p class="text-danger">{{email_err_msg}}</p>
                     {% endif %}
 
@@ -52,12 +52,22 @@
                     <label data-error="wrong" data-success="right" for="email">Email</label>
                 </div>
                 <div class="md-form mb-5">
+
+                    {% if username_err_msg %}
+                    <p class="text-danger">{{username_err_msg}}</p>
+                    {% endif %}
+
                     <i class="fas fa-envelope prefix grey-text"></i>
                     <input type="text" id="defaultForm-username" name='username' class="form-control validate"
                         maxlength="25" minlength="2" required>
                     <label data-error="wrong" data-success="right" for="username">Username</label>
                 </div>
                 <div class="md-form mb-4">
+
+                    {% if pass_err_msg %}
+                    <p class="text-danger">{{pass_err_msg}}</p>
+                    {% endif %}
+
                     <i class="fas fa-lock prefix grey-text"></i>
                     <input type="password" id="defaultForm-pass" name='password' class="form-control validate"
                         maxlength="25" minlength="4" required>
