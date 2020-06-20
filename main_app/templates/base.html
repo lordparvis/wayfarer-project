@@ -38,6 +38,11 @@
         </div>
         <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
             <ul class="navbar-nav ml-auto flex-nowrap">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class=" nav-link btn btn-default btn-rounded mb-4" href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% else %}
                 <li class="nav-item">
                     <!-- <a href="" class="nav-link signup-btn">Sign Up</a> -->
                     <a href="" class=" nav-link btn btn-default btn-rounded mb-4" data-toggle="modal"
@@ -50,15 +55,17 @@
                         data-target="#modalLoginForm"> Login
                     </a>
                 </li>
-
+                {% endif %}
             </ul>
         </div>
     </nav>
-
     {% block content%}
-
+    
     {% endblock%}
-
+    
+<div class="footer">
+    <p>Footer</p>
+</div>
 </body>
 
 </html>
