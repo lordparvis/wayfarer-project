@@ -39,9 +39,9 @@
         <a class="btn btn-primary" href="{%url 'post'%}"> POST</a>
         {%for posts in post%}
             <div class="row">
-                <div class="card" style="height: 5rem">
+                <div class="card" style="height: 50px">
                     <div class="card-body">
-                        <h5 class="card-title">{{posts.title}}</h5>
+                        <h5 class="card-title"><a href="{% url 'post_detail' posts.id %}">{{posts.title}}</a></h5>
                     </div>
                 </div>
             </div>
