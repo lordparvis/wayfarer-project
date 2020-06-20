@@ -36,7 +36,8 @@ def profile(request):
     context={'profile_form':profile_form,'user':user, 'post':post}
     return render(request,'profile/profile.html',context)
   
-# Post
+
+@login_required
 def post(request):
     if request.method =="POST":
         post_form=Post_Form(request.POST)
@@ -49,8 +50,13 @@ def post(request):
         post_form=Post_Form()
     post=Post.objects.all()
     context={'post_form':post_form, 'post':post}
-    return render(request,'post.html',context)
+    return render(request,'posts/post.html',context)
 
+@login_required
+def post_detail(request, post_id):
+    post = Post.objects.get(id=post_id)
+    context = {'post': post}
+    return render(request, 'posts/detail.html', context)
 
 
 # City
