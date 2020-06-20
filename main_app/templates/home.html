@@ -4,38 +4,6 @@
 
 {%block content%}
 
-
-<!-- <div class='sign'>
-    {% if error %}
-    <p style="background-color: firebrick;">{{error}}</p>
-    {% endif %} -->
-
-<!-- <section class="form-section">
-        <form action="{% url 'signup' %}" method="POST" class="artist-form">
-            {% csrf_token %}
-            <p>
-                <label for="email">Email</label>
-                <input type="email" name="email" maxlength="25" minlength="2" required>
-            </p>
-            <p>
-                <label for="username">Username</label>
-                <input type="text" name="username" maxlength="25" minlength="2" required>
-            </p>
-            <p>
-                <label for="password">Password</label>
-                <input type="password" name="password" maxlength="25" minlength="4" required>
-            </p>
-            <p>
-                <label for="password2">Confirm Password</label>
-                <input type="password" name="password2" maxlength="25" minlength="4" required>
-            </p>
-            <button type="submit"> Register </button>
-        </form>
-    </section>
-</div> -->
-
-
-
 <!-- Modal -->
 <div class="modal fade" id="modalSignUpForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
@@ -55,8 +23,22 @@
 
                 <div class="md-form mb-5">
 
-                    {% if True %}
-                        <p class="text-danger">{{email_err_msg}}</p>
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="text" id="defaultForm-firsts" name='first_name' class="form-control validate"
+                        maxlength="25" minlength="2" required>
+                    <label data-error="wrong" data-success="right" for="first_name">First Name</label>
+                </div>
+
+
+                <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="text" id="defaultForm-last" name='last_name' class="form-control validate"
+                        maxlength="25" minlength="2" required>
+                    <label data-error="wrong" data-success="right" for="last_name">Last Name</label>
+                </div>
+                <div class="md-form mb-5">
+                    {% if email_err_msg %}
+                    <p class="text-danger">{{email_err_msg}}</p>
                     {% endif %}
 
                     <i class="fas fa-envelope prefix grey-text"></i>
@@ -65,23 +47,36 @@
                     <label data-error="wrong" data-success="right" for="email">Your email</label>
                 </div>
                 <div class="md-form mb-5">
+
+                    {% if username_err_msg %}
+                    <p class="text-danger">{{username_err_msg}}</p>
+                    {% endif %}
+
                     <i class="fas fa-envelope prefix grey-text"></i>
                     <input type="text" id="defaultForm-username" name='username' class="form-control validate"
                         maxlength="25" minlength="2" required>
                     <label data-error="wrong" data-success="right" for="username">Your Username</label>
                 </div>
                 <div class="md-form mb-4">
+
+                    {% if pass_err_msg %}
+                    <p class="text-danger">{{pass_err_msg}}</p>
+                    {% endif %}
+
                     <i class="fas fa-lock prefix grey-text"></i>
                     <input type="password" id="defaultForm-pass" name='password' class="form-control validate"
                         maxlength="25" minlength="4" required>
-                    <label data-error="wrong" data-success="right" for="password">Your password</label>
+                    <label data-error="wrong" data-success="right" for="password">New password</label>
                 </div>
                 <div class="md-form mb-4">
                     <i class="fas fa-lock prefix grey-text"></i>
                     <input type="password" id="defaultForm-pass" name='password2' class="form-control validate"
                         maxlength="25" minlength="4" required>
-                    <label data-error="wrong" data-success="right" for="password2">Confirm</label>
+                    <label data-error="wrong" data-success="right" for="password2">Confirm Password</label>
                 </div>
+
+
+
 
             </div>
             <div class="modal-footer d-flex justify-content-center">
@@ -104,15 +99,15 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    
-                    
+
+
 
             </div>
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
 
                     {% if login_error %}
-                        <p class="text-danger">{{login_err_msg}}</p>
+                    <p class="text-danger">{{login_err_msg}}</p>
                     {% endif %}
 
                     <i class="fas fa-envelope prefix grey-text"></i>
@@ -155,13 +150,13 @@
     </slide>
 
 </slider>
+
 <!-- The header -->
 <div class='about'>
     <h1> WAYFARER</h1>
 
 </div>
 <!-- start -->
-
 
 <!-- The Card Section -->
 
@@ -170,22 +165,25 @@
     <div class="card" style="width: 20rem;">
 
         <div class="card-body">
-            <span class='topic'>About Us</span>
-            <br>
+            <header class="topic">
+                <span>About Us</span>
+            </header>
             <hr>
             <br>
             <p class="card-text">
-                Our application provide the best feature for people who is looking
-                for places to go or wondering what location would be their next destination.
-
+                Our application provides the fastest features on the internet for people who are looking
+                for places to visit or wondering what location would be their next travel destination.
             </p>
-        </div>
+            <!-- <br> -->
+            <svg class="bi bi-lightning" width="5em" height="5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/>
+              </svg>        </div>
     </div>
     <div class="card" style="width: 20rem;">
-
         <div class="card-body">
-            <span class='topic'>Community</span>
-            <br>
+            <header class="topic">
+                <span>Community</span>
+            </header>
             <hr>
             <br>
             <p class="card-text">
@@ -193,13 +191,17 @@
                 They will give you the best review and advice that make sure you have a blast.
                 Don't hesitate to give advice to others!
             </p>
+            <svg class="bi bi-people" width="5.9em" height="5.9em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.995-.944v-.002.002zM7.022 13h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zm7.973.056v-.002.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+              </svg>
         </div>
     </div>
     <div class="card" style="width: 20rem;">
 
         <div class="card-body">
-            <span class='topic'> Location</span>
-            <br>
+            <header class="topic">
+                <span>Location</span>
+            </header>
             <hr>
             <br>
             <p class="card-text">
@@ -213,24 +215,30 @@
                 <br>
                 4) Japan
             </p>
+            <svg class="bi bi-compass" width="5em" height="5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 15.016a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13zm0 1a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15z"/>
+                <path d="M6 1a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2H7a1 1 0 0 1-1-1zm.94 6.44l4.95-2.83-2.83 4.95-4.95 2.83 2.83-4.95z"/>
+            </svg>
         </div>
     </div>
 
 </div>
+
 {% if login_error %}
-    <script>
-        $(document).ready(function(){
-            $("#modalLoginForm").modal('show');
-        });
-    </script>
+<script>
+    $(document).ready(function () {
+        $("#modalLoginForm").modal('show');
+    });
+</script>
 {% endif %}
 
 {% if signUp_error %}
-    <script>
-        $(document).ready(function(){
-            $("#modalSignUpForm").modal('show');
-        });
-    </script>
+<script>
+    $(document).ready(function () {
+        $("#modalSignUpForm").modal('show');
+    });
+</script>
 {% endif %}
+
 
 {%endblock%}
