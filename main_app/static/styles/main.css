@@ -180,12 +180,14 @@ text-align: center;
 .container{
 background-color: #f5f5f5;
 position: relative;
-margin: 10% 10% !important;
+margin-left: auto !important;
+margin-right: auto !important;
+margin-top: 12% !important;
 display: flex !important;
 flex-direction: row !important;
 justify-content: space-between !important;
 align-items: flex-end !important;
-width:100%;
+width:100vh;
 top:900px;
 border-radius: 10%;
 
