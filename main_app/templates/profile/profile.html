@@ -18,10 +18,27 @@
 <p> usernmae {{user.username}}</p>
 <p>first{{user.first_name}}</p>
 <p> last {{user.last_name}}</p>
+<p> last {{user.date_joined}}</p>
 
 
+<form action="{%url 'profile'%}" method="POST">
+
+    {%csrf_token%}
+    {{profile_form.as_p}}
+    <input type="submit">
+</form>
+
+<a href="{%url 'post'%}"> POST</a>
+
+{{user.profile.city}}
 
 
+{%for posts in post%}
+
+Title: {{posts.title}}
+Content: {{posts.content}}
+
+{%endfor%}
 
 
 {% endblock%}
