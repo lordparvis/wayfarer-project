@@ -137,6 +137,7 @@ color: #F9F9F9;
 }
 
 
+
 .brand{
 color: white;
 width:240px;
@@ -148,6 +149,7 @@ align-items: center;
 padding: 0px;
 font-size: 35px !important;
 line-height: 25px !important;
+
 }
 
 .brand:hover{
@@ -174,32 +176,38 @@ text-align: center;
 }
 
 /* The container that holds the message*/
-/* .container-2{
-background-color: whitesmoke;
-position: relative; */
-/* bottom: 0; */
-/* display: flex !important;
+
+.container{
+background-color: #f5f5f5;
+position: relative;
+margin: 10% 10% !important;
+display: flex !important;
 flex-direction: row !important;
 justify-content: space-between !important;
 align-items: flex-end !important;
 width:100%;
 top:900px;
+border-radius: 10%;
 
 
-}  */
+} 
 
 .card{
 
+width: 300px;
+height: 300px;
+box-shadow: 5px 10px 18px grey;
+border-radius: 10% !important;
+padding-bottom: 10%;
 background-color: whitesmoke;
-/* width: 300px;
-height: 400px; */
-border-radius: 20px;
 box-shadow: 5px 10px 18px #888888;
+
 
 }
 
 .card p{
 /* color: darkgrey; */
+color: rgb(32, 32, 32);
 text-align: start;
 font-family: 'Poppins', sans-serif;
 word-spacing: 3px;
@@ -210,14 +218,21 @@ word-spacing: 3px;
 /* To adjust the topic text to center */
 .card-body{
 
+background-color: #f9f9f9;
 text-align: center;
+border-radius: 10%;
 
 }
 /* styling the topic class */
 .topic{
-padding: 10px 20px;
+border-radius: 15px 15px 0px 0px;
+background-color: #ED2945;
 text-align: center;
-font-size: 20px;
+font-size: 1.4em;
 font-family: 'Poppins', sans-serif;
+padding: 10px 10px !important;
+color: rgb(245, 245, 245);
 }
+
+
 

@@ -4,9 +4,6 @@
 
 {%block content%}
 
-
-
-
 <!-- Modal -->
 <div class="modal fade" id="modalSignUpForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
@@ -31,6 +28,8 @@
                         maxlength="25" minlength="2" required>
                     <label data-error="wrong" data-success="right" for="first_name">First Name</label>
                 </div>
+
+
                 <div class="md-form mb-5">
                     <i class="fas fa-envelope prefix grey-text"></i>
                     <input type="text" id="defaultForm-last" name='last_name' class="form-control validate"
@@ -67,14 +66,17 @@
                     <i class="fas fa-lock prefix grey-text"></i>
                     <input type="password" id="defaultForm-pass" name='password' class="form-control validate"
                         maxlength="25" minlength="4" required>
-                    <label data-error="wrong" data-success="right" for="password">Your password</label>
+                    <label data-error="wrong" data-success="right" for="password">New password</label>
                 </div>
                 <div class="md-form mb-4">
                     <i class="fas fa-lock prefix grey-text"></i>
                     <input type="password" id="defaultForm-pass" name='password2' class="form-control validate"
                         maxlength="25" minlength="4" required>
-                    <label data-error="wrong" data-success="right" for="password2">Confirm</label>
+                    <label data-error="wrong" data-success="right" for="password2">Confirm Password</label>
                 </div>
+
+
+
 
             </div>
             <div class="modal-footer d-flex justify-content-center">
@@ -148,6 +150,7 @@
     </slide>
 
 </slider>
+
 <!-- The header -->
 <div class='about'>
     <h1> WAYFARER</h1>
@@ -155,30 +158,29 @@
 </div>
 <!-- start -->
 
-
 <!-- The Card Section -->
 
-<!-- <div class="container">
+<div class="container">
 
     <div class="card" style="width: 20rem;">
 
         <div class="card-body">
-            <span class='topic'>About Us</span>
-            <br>
+            <header class="topic">
+                <span>About Us</span>
+            </header>
             <hr>
             <br>
             <p class="card-text">
                 Our application provide the best feature for people who is looking
                 for places to go or wondering what location would be their next destination.
-
             </p>
         </div>
     </div>
     <div class="card" style="width: 20rem;">
-
         <div class="card-body">
-            <span class='topic'>Community</span>
-            <br>
+            <header class="topic">
+                <span>Community</span>
+            </header>
             <hr>
             <br>
             <p class="card-text">
@@ -191,8 +193,9 @@
     <div class="card" style="width: 20rem;">
 
         <div class="card-body">
-            <span class='topic'> Location</span>
-            <br>
+            <header class="topic">
+                <span>Location</span>
+            </header>
             <hr>
             <br>
             <p class="card-text">
@@ -207,9 +210,10 @@
                 4) Japan
             </p>
         </div>
-    </div> -->
+    </div>
 
 </div>
+
 {% if login_error %}
 <script>
     $(document).ready(function () {
@@ -225,5 +229,6 @@
     });
 </script>
 {% endif %}
+
 
 {%endblock%}
