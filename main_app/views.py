@@ -7,12 +7,14 @@ from django.contrib.auth.models import User
 
 from .models import Profile
 from .models import Post
+from .models import City
 
 from .forms import Post_Form
 from .forms import Profile_Form
 
 # Create your views here.
 
+# Home
 def home(request):
     return render(request,'home.html')
 
@@ -30,10 +32,11 @@ def profile(request):
         profile_form=Profile_Form()
     user=request.user
     post=Post.objects.filter(user=request.user)
+    # profile=Profile.objects.filter(user=request.user)
     context={'profile_form':profile_form,'user':user, 'post':post}
     return render(request,'profile/profile.html',context)
   
-
+# Post
 def post(request):
     if request.method =="POST":
         post_form=Post_Form(request.POST)
@@ -47,6 +50,22 @@ def post(request):
     post=Post.objects.all()
     context={'post_form':post_form, 'post':post}
     return render(request,'post.html',context)
+
+
+
+# City
+
+def city(request):
+    city=City.objects.all()
+    context={'city':city}
+    return render(request,'city.html',context)
+
+
+
+def detail_city(request,city_id):
+    city= City.objects.get(id=city_id)
+    context={'city':city}
+    return render(request,'city_detail.html',context)
 
 
 

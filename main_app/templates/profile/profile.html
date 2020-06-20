@@ -11,8 +11,11 @@
 
 
 {%endfor%} -->
+<!-- {% if user.profile.image %}
 
+<img src="{{user.profile.image.url}}" width='240' alt="My Picture">
 
+{% endif %} -->
 
 <p> email: {{user.email}}</p>
 <p> usernmae {{user.username}}</p>
@@ -29,7 +32,7 @@
 </form>
 
 <a href="{%url 'post'%}"> POST</a>
-
+<a href="{% url 'city'%}"> Cities</a>
 {{user.profile.city}}
 
 
