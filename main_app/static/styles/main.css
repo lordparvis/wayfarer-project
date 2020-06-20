@@ -180,12 +180,14 @@ text-align: center;
 .container{
 background-color: #f5f5f5;
 position: relative;
-margin: 10% 10% !important;
+margin-left: auto !important;
+margin-right: auto !important;
+margin-top: 12% !important;
 display: flex !important;
 flex-direction: row !important;
 justify-content: space-between !important;
 align-items: flex-end !important;
-width:100%;
+width:100vh;
 top:900px;
 border-radius: 10%;
 
@@ -195,7 +197,7 @@ border-radius: 10%;
 .card{
 
 width: 300px;
-height: 300px;
+height: 390px;
 box-shadow: 5px 10px 18px grey;
 border-radius: 10% !important;
 padding-bottom: 10%;
@@ -233,6 +235,5 @@ font-family: 'Poppins', sans-serif;
 padding: 10px 10px !important;
 color: rgb(245, 245, 245);
 }
-
 
 
