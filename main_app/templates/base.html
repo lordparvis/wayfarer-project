@@ -31,10 +31,11 @@
         <div class="d-flex flex-grow-1">
             <span class="w-100 d-lg-none d-block">
             </span>
-            <h2 class="navbar-brand">
+            <img src="{%static 'images/logo.png'%}" alt="wayfarer logo" height="85px">
+            <!-- <h2 class="navbar-brand">
                 WAYFARER
-            </h2>
-
+            </h2> -->
+            
         </div>
         <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
             <ul class="navbar-nav ml-auto flex-nowrap">
@@ -59,13 +60,18 @@
             </ul>
         </div>
     </nav>
-    
-    
+
     {% block content%}
     
     {% endblock%}
-<div class="footer">
-    <p>Footer</p>
-</div>
+
+    <!-- Bootstrap Footer -->
+
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <p>Copyright &copy; Created by Temple</p>
+        </div>
+    </footer>
+    
 </body>
 </html>
