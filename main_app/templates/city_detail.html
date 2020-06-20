@@ -9,4 +9,23 @@
 <img src="{{city.img.url}}" width='1000' alt="picture">
 
 
+{%for posts in post%}
+
+<p> Title: {{posts.title}} </p>
+<p> Content: {{posts.content}} </p>
+<p>User: {{posts.user}}</p>
+{%endfor%}
+
+<form action="{%url 'detail' city.id %}" method="POST">
+
+    {%csrf_token%}
+
+    {{post_form.as_p}}
+
+
+    <input type="submit" value="submit">
+
+</form>
+
+
 {% endblock%}

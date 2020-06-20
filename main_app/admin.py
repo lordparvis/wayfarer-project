@@ -7,3 +7,4 @@ from .models import City
 admin.site.register(Profile)
 admin.site.register(Post)
 admin.site.register(City)
+

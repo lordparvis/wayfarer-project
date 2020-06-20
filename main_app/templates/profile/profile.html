@@ -4,18 +4,9 @@
 {%block content%}
 
 
-<!-- {%for profiles in profile%}
-<p> name: {{profiles.name}}</p>
-<p> name: {{profiles.city}}</p>
-<p> name: {{profiles.date}}</p>
 
 
-{%endfor%} -->
-<!-- {% if user.profile.image %}
 
-<<<<<<< HEAD
-<img src="{{user.profile.image.url}}" width='240' alt="My Picture">
-=======
 <div class="row">
     <div class="col user-data">
         <div class="card">
@@ -29,52 +20,38 @@
                 </div>
             </div>
         </div>
-        
+
         <form action="{%url 'profile'%}" method="POST">
 
             {%csrf_token%}
             {{profile_form.as_p}}
             <input type="submit">
         </form>
-        
-        
+
+
     </div>
     <div class="col user-posts">
         <a class="btn btn-primary" href="{%url 'post'%}"> POST</a>
+        <a href="{%url 'city'%}"> City</a>
         {%for posts in post%}
-            <div class="row">
-                <div class="card" style="height: 50px">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="{% url 'post_detail' posts.id %}">{{posts.title}}</a></h5>
-                    </div>
+        <div class="row">
+            <div class="card" style="height: 50px">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'post_detail' posts.id %}">{{posts.title}}</a></h5>
                 </div>
             </div>
-            
+        </div>
+
         {%endfor%}
-        
+
     </div>
 </div>
->>>>>>> submaster
-
-{% endif %} -->
 
 
 
 
-<<<<<<< HEAD
-    {%csrf_token%}
-    {{profile_form.as_p}}
-    <input type="submit">
-</form>
 
-<a href="{%url 'post'%}"> POST</a>
-<a href="{% url 'city'%}"> Cities</a>
-=======
-
->>>>>>> submaster
 {{user.profile.city}}
-
-
 
 
 

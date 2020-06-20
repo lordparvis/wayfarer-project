@@ -37,6 +37,10 @@ def profile(request):
     return render(request,'profile/profile.html',context)
   
 
+
+
+
+# Normal Post
 @login_required
 def post(request):
     if request.method =="POST":
@@ -52,6 +56,10 @@ def post(request):
     context={'post_form':post_form, 'post':post}
     return render(request,'posts/post.html',context)
 
+
+
+
+# Post Detail
 @login_required
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
@@ -67,10 +75,21 @@ def city(request):
     return render(request,'city.html',context)
 
 
-
+# City Show Page
 def detail_city(request,city_id):
     city= City.objects.get(id=city_id)
-    context={'city':city}
+    if request.method=='POST':
+        post_form=Post_Form(request.POST)
+        if post_form.is_valid() and request.user.is_authenticated:
+            new_post_form=post_form.save(commit=False)
+            new_post_form.city=city_id
+            new_post_form.user=request.user
+            new_post_form.save()
+        return redirect('detail',city_id=city_id)
+    else:
+        post_form=Post_Form()
+    post=Post.objects.filter(cities=city)  #the cities is referring to the fk on post model
+    context={'city':city,'post_form':post_form,'post':post}
     return render(request,'city_detail.html',context)
 
 
