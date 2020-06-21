@@ -113,8 +113,8 @@ def detail_city(request, city_id):
     context = {'city': city, 'post_form': post_form, 'post': post}
     return render(request, 'city_detail.html', context)
 
-
 # Sign Up
+
 
 pass_err_msg = ''
 email_err_msg = ''
