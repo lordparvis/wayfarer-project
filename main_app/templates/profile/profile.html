@@ -1,26 +1,51 @@
-{% extends 'base.html'%}
-
+{% extends 'base.html'%} 
 
 {%block content%}
 
+<div class="row">
+    <div class="col user-data">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-text">
+                    <p> Email: {{user.email}}</p>
+                    <p> Username {{user.username}}</p>
+                    <p> First Name:{{user.first_name}}</p>
+                    <p> Last Name: {{user.last_name}}</p>
+                    <p> Date Joined: {{user.date_joined}}</p>
+                    <div>
+                        <a href="{% url 'edit' user.profile.id %}">Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<!-- {%for profiles in profile%}
-<p> name: {{profiles.name}}</p>
-<p> name: {{profiles.city}}</p>
-<p> name: {{profiles.date}}</p>
+        <form action="{%url 'profile'%}" method="POST">
+
+            {%csrf_token%}
+            {{profile_form.as_p}}
+            <input type="submit">
+        </form>
 
 
-{%endfor%} -->
+    </div>
+    <div class="col user-posts">
+        <a class="btn btn-primary" href="{%url 'post'%}"> POST</a>
+        <a href="{%url 'city'%}"> City</a>
+        {%for posts in post%}
+        <div class="row">
+            <div class="card" style="height: 50px">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'post_detail' posts.id %}">{{posts.title}}</a></h5>
+                </div>
+            </div>
+        </div>
 
+        {%endfor%}
 
+    </div>
+</div>
 
-<p> email: {{user.email}}</p>
-<p> usernmae {{user.username}}</p>
-<p>first{{user.first_name}}</p>
-<p> last {{user.last_name}}</p>
-
-
-
+{{user.profile.city}}
 
 
 
