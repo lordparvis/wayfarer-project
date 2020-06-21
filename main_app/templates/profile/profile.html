@@ -1,16 +1,5 @@
-{% extends 'base.html'%}
+{% extends 'base.html'%} {%block content%}
 
-
-{%block content%}
-
-
-<!-- {%for profiles in profile%}
-<p> name: {{profiles.name}}</p>
-<p> name: {{profiles.city}}</p>
-<p> name: {{profiles.date}}</p>
-
-
-{%endfor%} -->
 
 <div class="row">
     <div class="col user-data">
@@ -22,6 +11,9 @@
                     <p> First Name:{{user.first_name}}</p>
                     <p> Last Name: {{user.last_name}}</p>
                     <p> Date Joined: {{user.date_joined}}</p>
+                    <div>
+                        <a href="{% url 'edit' user.profile.id %}">Edit</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -50,10 +42,6 @@
         
     </div>
 </div>
-
-
-
-
 
 
 {{user.profile.city}}
