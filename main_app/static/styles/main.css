@@ -143,7 +143,7 @@ height: 80px;
     padding: 0px;
     font-size: 35px !important;
     line-height: 25px !important;
-    
+
 }
 
 .brand:hover{
@@ -246,20 +246,14 @@ box-shadow: 1px 5px 15px 2px #888888;
   flex: 1 0 auto;
 } */
 
-#sticky-footer {
+.footer-container{
 
-
-    flex-shrink: none;
-    position: static;
-    left: 0 !important; 
-    bottom: 0 !important;
-    width: 100% !important;
-    height: 20px;
-    background: #ED2945 !important;
-    color: white !important;
-    text-align: center !important;
-  
-
-
+    /* position: relative; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ED2945;
+    color: white;
+    text-align: center;
 }
 
