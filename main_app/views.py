@@ -18,7 +18,7 @@ from .forms import Profile_Form
 def home(request):
     return render(request,'home.html')
 
-# Profile 
+# Profile
 
 @login_required
 def profile(request):
@@ -35,7 +35,7 @@ def profile(request):
     # profile=Profile.objects.filter(user=request.user)
     context={'profile_form':profile_form,'user':user, 'post':post}
     return render(request,'profile/profile.html',context)
-  
+
 
 
 
@@ -57,9 +57,20 @@ def post(request):
     return render(request,'posts/post.html',context)
 
 
+# Profile Edit && Update
+def profile_edit(request, profile_id):
+  profile = Profile.objects.get(id=profile_id)
+  profile_form = Profile_Form()
+  if request.method == 'POST':
+    profile_form = Profile_Form(request.POST, instance=profile)
+    if profile_form.is_valid():
+      profile_form.save()
+      return redirect('profile')
+  else:
+    profile_form = Profile_Form(instance=profile)
+  context = {'profile': profile, 'profile_form': profile_form}
+  return render(request, 'profile/edit.html', context)
 
-
-# Post Detail
 @login_required
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
@@ -130,7 +141,7 @@ def signup(request):
                         username=username_form,
                         email=email_form,
                         password=password,
-                        first_name=first_name, 
+                        first_name=first_name,
                         last_name=last_name
                     )
                 user.save()
@@ -142,7 +153,7 @@ def signup(request):
     else:
         return render(request,'home.html',context)
 
-# LOGIN 
+# LOGIN
 def login(request):
     if request.method == 'POST':
         username_form=request.POST['username']
