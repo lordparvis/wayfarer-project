@@ -187,9 +187,7 @@ slide p {
 
 
 /* .container{
-
 margin: 5px 10px !important;
-
 } */
 
 .card {
@@ -305,7 +303,6 @@ svg {
     position: absolute;
     top: 0 !important;
     width: 100%;
-
 } */
 
 
@@ -320,4 +317,3 @@ svg {
     height: 100px;
     background-color: rgba(237, 41, 70, 0.952);
   } 
-
