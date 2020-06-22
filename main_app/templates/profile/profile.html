@@ -11,10 +11,10 @@
                     <p> Username: {{user.username}}</p>
                     <p> First Name: {{user.first_name}}</p>
                     <p> Last Name: {{user.last_name}}</p>
-                    <p> City: {{user.city}}</p>
                     <p> Date Joined: {{user.date_joined}}</p>
+                    <p> City: {{user.profile.city}}</p>
                     <div>
-                        <a href="{% url 'edit' user.id %}">Edit</a>
+                        <a href="{% url 'edit' user.profile.id %}">Edit</a>
 
                     </div>
                 </div>

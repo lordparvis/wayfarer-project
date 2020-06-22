@@ -27,18 +27,18 @@ def home(request):
 
 @login_required
 def profile(request):
-    # if request.method == 'POST':
-    #     profile_form = Profile_Form(request.POST)
-    #     if profile_form.is_valid() and request.user.is_authenticated:
-    #         new_profile = profile_form.save(commit=False)
-    #         new_profile.user = request.user
-    #         new_profile.save()
-    # else:
-    # profile_form = Profile_Form()
+    if request.method == 'POST':
+        profile_form = Profile_Form(request.POST)
+        if profile_form.is_valid() and request.user.is_authenticated:
+            new_profile = profile_form.save(commit=False)
+            new_profile.user = request.user
+            new_profile.save()
+    else:
+        profile_form = Profile_Form()
     user = request.user
     post = Post.objects.filter(user=request.user)
-    profile = Profile.objects.filter(user=request.user)
-    context = {'user': user, 'post': post, 'profile': profile}
+    # profile=Profile.objects.filter(user=request.user)
+    context = {'profile_form': profile_form, 'user': user, 'post': post}
     return render(request, 'profile/profile.html', context)
 
 
@@ -61,46 +61,24 @@ def post(request):
 
 # Profile Edit & & Update
 
-@login_required
+# @login_required
 def profile_edit(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
     profile_form = Profile_Form()
     user = request.user
     if request.method == 'POST':
+        user_form = UserChangeForm(request.POST, instance=request.user)
         profile_form = Profile_Form(request.POST, instance=profile)
-    if profile_form.is_valid():
+    if profile_form.is_valid() and user_form.is_valid():
+        user_form.save()
         profile_form.save()
         return redirect('profile')
     else:
+        user_form = UserChangeForm(instance=request.user)
         profile_form = Profile_Form(instance=profile)
     context = {'profile': profile,
-               'profile_form': profile_form, 'profile_id': profile_id}
+               'profile_form': profile_form, 'profile_id': profile_id, 'user_form': user_form}
     return render(request, 'profile/edit.html', context)
-
-
-# Testing
-
-# def profile_edit(request):
-#     if request.method == 'POST':
-#         user_form = UserCreationForm(request.POST, instance=request.user)
-#         profile_form = Profile_Form(
-#             request.POST, instance=request.user.profile)
-#         if user_form.is_valid() and profile_form.is_valid():
-#             user_form.save()
-#             profile_form.save()
-#             messages.success(request, _(
-#                 'Your profile was successfully updated!'))
-#             return redirect('profile')
-#         else:
-#             messages.error(request, _('Please correct the error below.'))
-
-#     else:
-#         user_form = UserCreationForm(instance=request.user)
-#         profile_form = Profile_Form(instance=request.user.profile)
-#     return render(request, 'profile/profile.html', {
-#         'user_form': user_form,
-#         'profile_form': profile_form
-#     })
 
 
 @login_required
@@ -173,13 +151,6 @@ def signup(request):
         password2 = request.POST['password2']
         city = request.POST['city']
         signUp_error = False
-        # testong
-        # profile_form = Profile_Form(request.POST)
-        # if profile_form.is_valid():
-        #     new_profile = profile_form.save(commit=False)
-        #     new_profile.user = request.user
-        #     new_profile.save()
-       # end of tsting
         if password == password2:
 
             if User.objects.filter(username=username_form).exists():
@@ -207,7 +178,7 @@ def signup(request):
 
                     )
                     user.save()
-                    print(saved_user)
+
                     profile = Profile.objects.create(
                         name=username_form,
                         city=city,
