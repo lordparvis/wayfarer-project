@@ -79,7 +79,8 @@ slide p {
     margin-top: 340px;
     color: #fff;
     letter-spacing: 0.2em;
-}
+    text-shadow: 4px 1px 5px #000000e1;
+  }
 
 @keyframes slide {
     0% {
@@ -311,13 +312,30 @@ svg {
 
 
 .container-f{
+    color: whitesmoke;
+    font-size: .85em;
+    border-radius: 15px 15px 0px 0px;
     position: absolute;
     bottom: 0 !important;
     width: 100%;
     text-align: center;
-    align-content: center;
+    /* align-content: center; */
     /* Set the fixed height of the footer here */
-    height: 100px;
+    height: 79px;
     background-color: rgba(237, 41, 70, 0.952);
+    margin-block-end: -100px;
+    text-shadow: 2px 1px 5px #000000e1;
+
+
   } 
 
+  /* border-radius: 15px 15px 0px 0px;
+    background-color: #ED2945;
+    text-align: center;
+    font-size: 1.4em;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 10px !important;
+    color: rgb(245, 245, 245);
+    border: 1px solid #353535;
+    padding: 5px;
+    box-shadow: 1px 5px 15px 2px #888888; */
