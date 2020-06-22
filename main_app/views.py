@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+#from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
@@ -12,6 +13,7 @@ from .models import City
 
 from .forms import Post_Form
 from .forms import Profile_Form
+from .forms import EditProfileForm
 
 # Create your views here.
 
@@ -67,14 +69,14 @@ def profile_edit(request, profile_id):
     profile_form = Profile_Form()
     user = request.user
     if request.method == 'POST':
-        user_form = UserChangeForm(request.POST, instance=request.user)
+        user_form = EditProfileForm(request.POST, instance=request.user)
         profile_form = Profile_Form(request.POST, instance=profile)
     if profile_form.is_valid() and user_form.is_valid():
         user_form.save()
         profile_form.save()
         return redirect('profile')
     else:
-        user_form = UserChangeForm(instance=request.user)
+        user_form = EditProfileForm(instance=request.user)
         profile_form = Profile_Form(instance=profile)
     context = {'profile': profile,
                'profile_form': profile_form, 'profile_id': profile_id, 'user_form': user_form}
