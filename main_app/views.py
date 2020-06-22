@@ -19,17 +19,8 @@ from .forms import Profile_Form
 
 
 def home(request):
-    if request.method == 'POST':
-        profile_form = Profile_Form(request.POST)
-    if profile_form.is_valid():
-            # profile_form.save()
-        new_profile = profile_form.save(commit=False)
-        new_profile.user = request.user
-        new_profile.save()
 
-    profile_form = Profile_Form()
-    context = {'profile_form': profile_form}
-    return render(request, 'home.html', context)
+    return render(request, 'home.html')
 
 # Profile
 
@@ -180,7 +171,7 @@ def signup(request):
         email_form = request.POST['email']
         password = request.POST['password']
         password2 = request.POST['password2']
-
+        city = request.POST['city']
         signUp_error = False
         # testong
         # profile_form = Profile_Form(request.POST)
@@ -215,9 +206,14 @@ def signup(request):
                         last_name=last_name
 
                     )
-
-                user.save()
-
+                    user.save()
+                    print(saved_user)
+                    profile = Profile.objects.create(
+                        name=username_form,
+                        city=city,
+                        user_id=user.id
+                    )
+                    profile.save()
                 return redirect('home')
         else:
             # signUp_error = True
