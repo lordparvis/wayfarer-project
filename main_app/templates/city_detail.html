@@ -18,6 +18,19 @@
 
 
 
+
+
+
+
+<!-- testing water up there  -->
+
+
+<!-- City -->
+<h1>{{city.name}}</h1>
+<h5> Country {{city.country}} </h5>
+<img src="{{city.img.url}}" width='1000' alt="picture">
+
+<!-- ADD POST -->
 <div class="modal fade" id="addPostModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -35,10 +48,6 @@
                     {%csrf_token%}
 
                     {{post_form.as_p}}
-
-
-
-
             </div>
 
 
@@ -56,18 +65,7 @@
         Add Post
     </button></a>
 
-
-
-<!-- testing water up there  -->
-
-
-<!-- City -->
-<h1>{{city.name}}</h1>
-<h5> Country {{city.country}} </h5>
-<img src="{{city.img.url}}" width='1000' alt="picture">
-
-
-
+<!-- SHOW POST -->
 {%for posts in post%}
 
 <a href="{%url 'post_detail' posts.id%}">
