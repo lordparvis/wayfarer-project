@@ -67,18 +67,13 @@ def profile_edit(request, profile_id):
     user = request.user
     if request.method == 'POST':
         profile_form = Profile_Form(request.POST, instance=profile)
-        user_form = UserChangeForm(request.POST, instance=user)
-        if profile_form.is_valid() and user_form.is_valid:
-            profile_form.save()
-            user_form.save()
-            return redirect('profile')
+    if profile_form.is_valid():
+        profile_form.save()
+        return redirect('profile')
     else:
-        profile: Profile.objects.filter(user=request.user)
-    profile_form = Profile_Form(instance=profile)
-    user_form = UserChangeForm(instance=user)
-    user = request.user
+        profile_form = Profile_Form(instance=profile)
     context = {'profile': profile,
-               'profile_form': profile_form, 'user_form': user_form}
+               'profile_form': profile_form, 'profile_id': profile_id}
     return render(request, 'profile/edit.html', context)
 
 
