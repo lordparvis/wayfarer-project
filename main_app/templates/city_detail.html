@@ -23,7 +23,11 @@
 <p> Title: {{posts.title}} </p>
 <p> Content: {{posts.content}} </p>
 <p>User: {{posts.user}}</p>
+{%if posts.user == request.user%}
 <a href="{%url 'post_edit' posts.id%}"> Edit </a>
+
+{%endif%}
+
 {%endfor%}
 
 
