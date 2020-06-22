@@ -124,6 +124,7 @@ def signup(request):
         email_form = request.POST['email']
         password = request.POST['password']
         password2 = request.POST['password2']
+        city = request.POST['city']
         signUp_error = False
         if password == password2:
 
@@ -148,7 +149,14 @@ def signup(request):
                         first_name=first_name,
                         last_name=last_name
                     )
-                user.save()
+                    user.save()
+                    print(saved_user)
+                    profile = Profile.objects.create(
+                        name=username_form,
+                        city=city,
+                        user_id=user.id
+                    )
+                    profile.save()
                 return redirect('home')
         else:
             # signUp_error = True
