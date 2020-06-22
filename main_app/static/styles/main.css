@@ -175,8 +175,8 @@ slide p {
     flex-direction: row !important;
     justify-content: space-between !important;
     align-items: center !important;
-    width:100vh;
-    top:700px;
+    width: 100vh;
+    top: 700px;
     border-radius: 10%;
     height: 500px !important;
 }
@@ -214,18 +214,21 @@ margin: 5px 10px !important;
 
 /* To adjust the topic text to center */
 
-.card-body{
-position: relative;
-background-color: #f9f9f9;
-text-align: center;
-border-radius: 10%;
-margin-bottom: 0px;
+.card-body {
+    position: relative;
+    background-color: #f9f9f9;
+    text-align: center;
+    border-radius: 10%;
+    margin-bottom: 0px;
 }
 
+
 /* each city row on the city */
+
 .cities-row {
     margin: 8px;
 }
+
 
 /* styling the topic class */
 
@@ -289,8 +292,7 @@ svg {
 } */
 
 .login-box-button {
-    position: fixed;
-    /* margin-left: 450px;*/
+    margin-left: 450px !important;
 }
 
 .footer {
@@ -305,9 +307,7 @@ svg {
     width: 100%;
 } */
 
-
-
-.container-f{
+.container-f {
     position: absolute;
     bottom: 0 !important;
     width: 100%;
@@ -316,4 +316,4 @@ svg {
     /* Set the fixed height of the footer here */
     height: 100px;
     background-color: rgba(237, 41, 70, 0.952);
-  } 
+}
