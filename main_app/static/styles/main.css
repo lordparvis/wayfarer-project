@@ -174,15 +174,16 @@ slide p {
     flex-direction: row !important;
     justify-content: space-between !important;
     align-items: center !important;
-    width:100vh;
-    top:900px;
+    width: 100vh;
+    top: 900px;
     border-radius: 10%;
-    height:500px !important;
+    height: 500px !important;
 }
 
 .d-flex {
     width: 20px !important;
 }
+
 
 /* .container{
 
@@ -190,18 +191,15 @@ margin: 5px 10px !important;
 
 } */
 
-
 .card {
     width: 300px;
-/* height: 390px; */
-/* box-shadow: 5px 10px 18px grey; */
-border-radius: 10% !important;
-/* padding-bottom: 10% !important; */
-background-color: whitesmoke;
-box-shadow: 5px 10px 18px #888888;
+    /* height: 390px; */
+    /* box-shadow: 5px 10px 18px grey; */
+    border-radius: 10% !important;
+    /* padding-bottom: 10% !important; */
+    background-color: whitesmoke;
+    box-shadow: 5px 10px 18px #888888;
 }
-
-
 
 .card p {
     /* color: darkgrey; */
@@ -215,15 +213,15 @@ box-shadow: 5px 10px 18px #888888;
 /* To adjust the topic text to center */
 
 
-
-
 /* To adjust the topic text to center */
-.card-body{
-position: relative;
-background-color: #f9f9f9;
-text-align: center;
-border-radius: 10%;
-margin-bottom: 0px;
+
+.card-body {
+    position: relative;
+    background-color: #f9f9f9;
+    text-align: center;
+    border-radius: 10%;
+    margin-bottom: 0px;
+}
 
 
 /* styling the topic class */
@@ -241,27 +239,29 @@ margin-bottom: 0px;
     box-shadow: 1px 5px 15px 2px #888888;
 }
 
-
-svg{
-  color: #000000a1 !important;
+svg {
+    color: #000000a1 !important;
 }
 
 
 /* html {
     height: 100%;
   } */
-  /* body {
+
+
+/* body {
     display: flex;
     flex-direction: column;
     height: 100vh; Avoid the IE 10-11 `min-height` bug.
   } */
 
-  /* .content {
-    flex: 1 0 auto; Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. 
+
+/* .content {
+    flex: 1 0 auto; Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size.
     padding: 20px;
   }
   .footer {
-    flex-shrink: 0; Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. 
+    flex-shrink: 0; Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size.
     padding: 20px;
   } */
 
@@ -282,9 +282,8 @@ svg{
     background-color: #ED2945;
     color: white;
     text-align: center;
-    top: 1200px;  
+    top: 1200px;
 } */
-
 
 .login-box-button {
     position: fixed;
@@ -304,6 +303,7 @@ svg{
 
 } */
 
+
 /* .footer-container{
     position: absolute;
     bottom: 0 !important;
@@ -313,6 +313,3 @@ svg{
     height: 100px;
     background-color: #ED2945;
   } */
-
-  
-
