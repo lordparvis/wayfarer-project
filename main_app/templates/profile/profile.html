@@ -1,50 +1,71 @@
-{% extends 'base.html'%}
+{% extends 'profile_base.html'%}
 
 {%block content%}
 
-<div class="row">
+<!-- <div class="row">
     <div class="col user-data">
         <div class="card">
             <div class="card-body">
                 <div class="card-text">
-                    <p> Email: {{user.email}}</p>
                     <p> Username: {{user.username}}</p>
                     <p> First Name: {{user.first_name}}</p>
                     <p> Last Name: {{user.last_name}}</p>
-                    <p> Date Joined: {{user.date_joined}}</p>
+                    <p> Email: {{user.email}}</p>
                     <p> City: {{user.profile.city}}</p>
+                    <p> Date Joined: {{user.date_joined}}</p>
                     <div>
-                        <a href="{% url 'edit' user.profile.id %}">Edit</a>
+                        <a href="{% url 'edit' user.profile.id %}">Edit Profile</a>
 
                     </div>
                 </div>
             </div>
         </div>
-        <!-- 
-        <form action="{%url 'profile'%}" method="POST">
+    </div> -->
 
-            {%csrf_token%}
-            {{profile_form.as_p}}
-            <input type="submit">
-        </form> -->
+<div class="card3">
+    <header>
+        <li> <a href="{% url 'edit' user.profile.id %}">Edit Profile</a> </li>
+        <img src="https://picsum.photos/200/200" alt="john">
+        <h2>{{user.username}}</h2>
+    </header>
+
+    <section id="rating">
+        <p>{{user.first_name}} {{user.last_name}}</p>
+        <p>Email: {{user.email}}</p>
+    </section>
+    <section class="price">
 
 
-    </div>
-    <div class="col user-posts">
-        <a class="btn btn-primary" href="{%url 'post'%}"> POST</a>
-        <a href="{%url 'city'%}"> City</a>
-        {%for posts in post%}
-        <div class="row">
-            <div class="card" style="height: 50px">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="{% url 'post_detail' posts.id %}">{{posts.title}}</a></h5>
-                </div>
+        <p> City: {{user.profile.city}}</p>
+        <p> Date Joined: {{user.date_joined}}</p>
+    </section>
+
+    <footer>
+
+        <i id="phone" class="fas fa-phone"></i> <i id="comment" class="fas fa-comment-dots"></i>
+
+    </footer>
+
+
+</div>
+
+
+<!-- POST -->
+<div class="col user-posts">
+    <a class="btn btn-primary" href="{%url 'post'%}"> POST</a>
+    <a href="{%url 'city'%}"> City</a>
+    {%for posts in post%}
+    <div class="row">
+        <div class="card" style="height: 50px">
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'post_detail' posts.id %}">{{posts.title}}</a></h5>
             </div>
         </div>
-
-        {%endfor%}
-
     </div>
+
+    {%endfor%}
+
+</div>
 </div>
 
 

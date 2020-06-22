@@ -2,6 +2,15 @@
 
 
 {% block content%}
+{%for city in cities%}
+
+<div class='card'>
+
+    <a href="{% url 'detail' city.id%}" display="inline">{{city.name}}</a>
+
+</div>
+{%endfor%}
+
 
 
 <h1>{{city.name}}</h1>
@@ -20,10 +29,17 @@
 </form>
 {%for posts in post%}
 
-<p> Title: {{posts.title}} </p>
+<a href="{%url 'post_detail' posts.id%}">
+    <p> Title: {{posts.title}} </p>
+</a>
 <p> Content: {{posts.content}} </p>
 <p>User: {{posts.user}}</p>
+{%if posts.user == request.user%}
 <a href="{%url 'post_edit' posts.id%}"> Edit </a>
+<a href="{%url 'delete' posts.id%}"> Delete</a>
+
+{%endif%}
+
 {%endfor%}
 
 
