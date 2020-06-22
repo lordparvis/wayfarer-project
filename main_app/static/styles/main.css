@@ -296,10 +296,10 @@ svg {
     margin-left: 450px !important;
 }
 
-.footer {
+/* .footer {
     padding-right: 15px;
     padding-left: 15px;
-}
+} */
 
 
 /* #slider{
@@ -316,13 +316,12 @@ svg {
 
     position: absolute;
     bottom: 0 !important;
-    width: 100%;
+    width: 100% !important;
     text-align: center;
     /* align-content: center; */
     /* Set the fixed height of the footer here */
     height: 79px;
     background-color: rgba(237, 41, 70, 0.952);
-    margin-block-end: -100px;
+    margin-block-end: -750px;
     text-shadow: 2px 1px 5px #000000e1;
-}
-
+  } 
