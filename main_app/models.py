@@ -8,19 +8,11 @@ from datetime import date
 
 
 class Profile(models.Model):
-<<<<<<< HEAD
     name = models.CharField(max_length=100)
     city = models.CharField(max_length=100, blank=True)
     date = models.DateField(auto_now_add=True)
     image = models.ImageField(upload_to="profil_img", blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-=======
-    name=models.CharField(max_length=100)
-    city=models.CharField(max_length=100, blank=True)
-    date=models.DateField(auto_now_add=True)
-    image=models.ImageField(upload_to="profil_img", blank=True)
-    user= models.OneToOneField(User,on_delete=models.CASCADE)
->>>>>>> submaster
 
     def __str__(self):
         return f"{self.name} {self.user}"

@@ -60,7 +60,7 @@ def post(request):
 
 # Profile Edit & & Update
 
-
+@login_required
 def profile_edit(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
     profile_form = Profile_Form()
