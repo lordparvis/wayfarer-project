@@ -5,12 +5,14 @@ from django.contrib.auth.forms import UserCreationForm
 #from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 
 from .models import Profile
 from .models import Post
 from .models import City
 
+from .forms import EditProfileForm
 from .forms import Post_Form
 from .forms import Profile_Form
 from .forms import EditProfileForm
@@ -82,6 +84,28 @@ def profile_edit(request, profile_id):
                'profile_form': profile_form, 'profile_id': profile_id, 'user_form': user_form}
     return render(request, 'profile/edit.html', context)
 
+# change password
+
+
+# def change_password(request, profile_id):
+#     profile = Profile.objects.get(id=profile_id)
+
+#     if request.method == 'POST':
+#         form = PasswordChangeForm(
+#             data=request.POST, profile=profile, user=request.user)
+#         if form.is_valid():
+#             form.save()
+#             update_session_auth_hash(request, form.user)
+#             return redirect('change_password')
+#         else:
+#             return redirect('profile')
+#     else:
+#         form = PasswordChangeForm(user=request.user)
+#     context = {'form': form}
+#     return render(request, 'profile/password.html', context)
+
+ # Post Detail or Show Page
+
 
 @login_required
 def post_detail(request, post_id):
@@ -89,7 +113,10 @@ def post_detail(request, post_id):
     context = {'post': post}
     return render(request, 'posts/detail.html', context)
 
+# Post Edit
 
+
+@login_required
 def post_edit(request, post_id):
     post = Post.objects.get(id=post_id)
     post_form = Post_Form()
@@ -104,6 +131,13 @@ def post_edit(request, post_id):
     context = {'post': post,
                'post_form': post_form, 'post_id': post_id}
     return render(request, 'posts/edit.html', context)
+
+
+# Post Delete
+@login_required
+def post_delete(request, post_id):
+    Post.objects.get(id=post_id).delete()
+    return redirect('profile')
 
 
 # City
@@ -129,9 +163,10 @@ def detail_city(request, city_id):
     else:
         post_form = Post_Form()
     # the cities is referring to the fk on post model
-
+    cities = City.objects.all()
     post = Post.objects.filter(cities=city)
-    context = {'city': city, 'post_form': post_form, 'post': post}
+    context = {'city': city, 'post_form': post_form,
+               'post': post, 'cities': cities}
     return render(request, 'city_detail.html', context)
 
 # Sign Up
