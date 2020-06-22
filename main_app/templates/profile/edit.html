@@ -4,14 +4,11 @@
 
 <h1>Edit {{user.username}}</h1>
 <form action="{% url 'edit' profile.id %}" method="POST">
-    {% csrf_token %}
-
-    {{profile_form.as_p}}
-
-    {{user_form.as_p}}
-
-    <input type="submit" value="Update">
+{% csrf_token %}
+{{profile_form.as_p}}
+<input type="submit" value="Update {{profile.username}}">
 </form>
+
 
 
 {% endblock  %}
