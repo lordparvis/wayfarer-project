@@ -36,7 +36,7 @@ def profile(request):
         profile_form = Profile_Form()
     user = request.user
     post = Post.objects.filter(user=request.user)
-    # profile=Profile.objects.filter(user=request.user)
+    profile = Profile.objects.filter(user=request.user)
     context = {'profile_form': profile_form, 'user': user, 'post': post}
     return render(request, 'profile/profile.html', context)
 
@@ -58,7 +58,9 @@ def post(request):
     return render(request, 'posts/post.html', context)
 
 
-# Profile Edit && Update
+# Profile Edit & & Update
+
+
 def profile_edit(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
     profile_form = Profile_Form()
@@ -72,12 +74,37 @@ def profile_edit(request, profile_id):
             return redirect('profile')
     else:
         profile: Profile.objects.filter(user=request.user)
-        profile_form = Profile_Form(instance=profile)
-        user_form = UserChangeForm(instance=user)
-        user = request.user
+    profile_form = Profile_Form(instance=profile)
+    user_form = UserChangeForm(instance=user)
+    user = request.user
     context = {'profile': profile,
                'profile_form': profile_form, 'user_form': user_form}
     return render(request, 'profile/edit.html', context)
+
+
+# Testing
+
+# def profile_edit(request):
+#     if request.method == 'POST':
+#         user_form = UserCreationForm(request.POST, instance=request.user)
+#         profile_form = Profile_Form(
+#             request.POST, instance=request.user.profile)
+#         if user_form.is_valid() and profile_form.is_valid():
+#             user_form.save()
+#             profile_form.save()
+#             messages.success(request, _(
+#                 'Your profile was successfully updated!'))
+#             return redirect('profile')
+#         else:
+#             messages.error(request, _('Please correct the error below.'))
+
+#     else:
+#         user_form = UserCreationForm(instance=request.user)
+#         profile_form = Profile_Form(instance=request.user.profile)
+#     return render(request, 'profile/profile.html', {
+#         'user_form': user_form,
+#         'profile_form': profile_form
+#     })
 
 
 @login_required
@@ -130,6 +157,7 @@ def signup(request):
         password = request.POST['password']
         password2 = request.POST['password2']
         signUp_error = False
+
         if password == password2:
 
             if User.objects.filter(username=username_form).exists():
@@ -144,7 +172,9 @@ def signup(request):
                         'email_err_msg': 'Email already linked to account', 'signUp_error': 'signUp_error'}
                     return render(request, 'home.html', context)
                 else:
+
                     signUp_error = False
+
                     user = User.objects.create_user(
 
                         username=username_form,
@@ -153,7 +183,9 @@ def signup(request):
                         first_name=first_name,
                         last_name=last_name
                     )
+
                 user.save()
+
                 return redirect('home')
         else:
             # signUp_error = True
@@ -161,6 +193,7 @@ def signup(request):
                        'signUp_error': 'signUp_error', 'pass_err_msg': 'Passwords do not match'}
             return render(request, 'home.html', context)
     else:
+
         return render(request, 'home.html', context)
 
 # LOGIN
