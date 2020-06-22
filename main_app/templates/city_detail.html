@@ -17,36 +17,6 @@
 
 
 
-<div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Delete Post</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -82,30 +52,34 @@
 
 <p> Content: {{posts.content}} </p>
 <p>User: {{posts.user}}</p>
+
 {%if posts.user == request.user%}
 <a href="{%url 'post_edit' posts.id%}"> Edit </a>
 
-<div class="modal" tabindex="-1" role="dialog">
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Delete Post</h5>
+            <div class="modal-header text-center">
+                <h5 class="modal-title">DELETE</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
             <div class="modal-body">
-                <p>Modal body text goes here.</p>
+                Do you want to delete this?
             </div>
+
             <div class="modal-footer">
-                <a href="{%url 'delete' posts.id%}"> <button type="button" class="btn btn-primary"> Delete</button></a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+                <a href="{% url 'delete' posts.id %}"><button type="button" class="btn btn-primary"> Delete</button></a>
             </div>
         </div>
     </div>
 </div>
 
-<a href="{%url 'delete' posts.id%}"> Delete</a>
+
+<a href="" class=" nav-link btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#deleteModal">Delete</a>
 
 {%endif%}
 
