@@ -19,25 +19,35 @@ from .forms import Profile_Form
 
 
 def home(request):
-    return render(request, 'home.html')
+    if request.method == 'POST':
+        profile_form = Profile_Form(request.POST)
+    if profile_form.is_valid():
+            # profile_form.save()
+        new_profile = profile_form.save(commit=False)
+        new_profile.user = request.user
+        new_profile.save()
+
+    profile_form = Profile_Form()
+    context = {'profile_form': profile_form}
+    return render(request, 'home.html', context)
 
 # Profile
 
 
 @login_required
 def profile(request):
-    if request.method == 'POST':
-        profile_form = Profile_Form(request.POST)
-        if profile_form.is_valid() and request.user.is_authenticated:
-            new_profile = profile_form.save(commit=False)
-            new_profile.user = request.user
-            new_profile.save()
-    else:
-        profile_form = Profile_Form()
+    # if request.method == 'POST':
+    #     profile_form = Profile_Form(request.POST)
+    #     if profile_form.is_valid() and request.user.is_authenticated:
+    #         new_profile = profile_form.save(commit=False)
+    #         new_profile.user = request.user
+    #         new_profile.save()
+    # else:
+    # profile_form = Profile_Form()
     user = request.user
     post = Post.objects.filter(user=request.user)
     profile = Profile.objects.filter(user=request.user)
-    context = {'profile_form': profile_form, 'user': user, 'post': post}
+    context = {'user': user, 'post': post, 'profile': profile}
     return render(request, 'profile/profile.html', context)
 
 
@@ -109,7 +119,24 @@ def post_detail(request, post_id):
     return render(request, 'posts/detail.html', context)
 
 
+def post_edit(request, post_id):
+    post = Post.objects.get(id=post_id)
+    post_form = Post_Form()
+    user = request.user
+    if request.method == 'POST':
+        post_form = Post_Form(request.POST, instance=post)
+    if post_form.is_valid():
+        post_form.save()
+        return redirect('post_detail', post_id=post_id)
+    else:
+        post_form = Post_Form(instance=post)
+    context = {'post': post,
+               'post_form': post_form, 'post_id': post_id}
+    return render(request, 'posts/edit.html', context)
+
+
 # City
+
 
 def city(request):
     city = City.objects.all()
@@ -131,6 +158,7 @@ def detail_city(request, city_id):
     else:
         post_form = Post_Form()
     # the cities is referring to the fk on post model
+
     post = Post.objects.filter(cities=city)
     context = {'city': city, 'post_form': post_form, 'post': post}
     return render(request, 'city_detail.html', context)
@@ -144,6 +172,7 @@ username_err_msg = ''
 
 
 def signup(request):
+
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -151,8 +180,15 @@ def signup(request):
         email_form = request.POST['email']
         password = request.POST['password']
         password2 = request.POST['password2']
-        signUp_error = False
 
+        signUp_error = False
+        # testong
+        # profile_form = Profile_Form(request.POST)
+        # if profile_form.is_valid():
+        #     new_profile = profile_form.save(commit=False)
+        #     new_profile.user = request.user
+        #     new_profile.save()
+       # end of tsting
         if password == password2:
 
             if User.objects.filter(username=username_form).exists():
@@ -177,6 +213,7 @@ def signup(request):
                         password=password,
                         first_name=first_name,
                         last_name=last_name
+
                     )
 
                 user.save()
@@ -188,7 +225,6 @@ def signup(request):
                        'signUp_error': 'signUp_error', 'pass_err_msg': 'Passwords do not match'}
             return render(request, 'home.html', context)
     else:
-
         return render(request, 'home.html', context)
 
 # LOGIN

@@ -31,67 +31,78 @@
                         <label data-error="wrong" data-success="right" for="city">City</label>
 
                 </div> -->
-
-                <!-- <div class="md-form mb-5">
-
-                    <i class="fas fa-envelope prefix grey-text"></i>
-
-                    {{ profile_form.as_p}}
-                    <label data-error="wrong" data-success="right" for="first_name">First Name</label>
-                </div> -->
+                <form action="{%url 'profile'%}" method="POST">
 
 
-                <div class="md-form mb-5">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <input type="text" id="defaultForm-last" name='first_name' class="form-control validate"
-                        maxlength="25" minlength="2" required>
-                    <label data-error="wrong" data-success="right" for="first_name">First Name</label>
-                </div>
-                <div class="md-form mb-5">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <input type="text" id="defaultForm-last" name='last_name' class="form-control validate"
-                        maxlength="25" minlength="2" required>
-                    <label data-error="wrong" data-success="right" for="last_name">Last Name</label>
-                </div>
+                    <div class="md-form mb-5">
 
-                <div class="md-form mb-5">
-                    {% if email_err_msg %}
-                    <p class="text-danger">{{email_err_msg}}</p>
-                    {% endif %}
 
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <input type="email" id="defaultForm-email" name='email' class="form-control validate" maxlength="25"
-                        minlength="2" required>
-                    <label data-error="wrong" data-success="right" for="email">Your email</label>
-                </div>
-                <div class="md-form mb-5">
+                        <i class="fas fa-location-arrow prefix grey-text"></i>
+                        {{ profile_form.as_p}}
 
-                    {% if username_err_msg %}
-                    <p class="text-danger">{{username_err_msg}}</p>
-                    {% endif %}
+                        <label data-error="wrong" data-success="right" for="first_name">FORM</label>
+                    </div>
 
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <input type="text" id="defaultForm-username" name='username' class="form-control validate"
-                        maxlength="25" minlength="2" required>
-                    <label data-error="wrong" data-success="right" for="username">Your Username</label>
-                </div>
-                <div class="md-form mb-4">
+                    <!-- FIRST NAME -->
+                    <div class="md-form mb-5">
 
-                    {% if pass_err_msg %}
-                    <p class="text-danger">{{pass_err_msg}}</p>
-                    {% endif %}
+                        <input type="text" id="defaultForm-last" name='first_name' class="form-control validate"
+                            maxlength="25" minlength="2" required>
+                        <label data-error="wrong" data-success="right" for="first_name">First Name</label>
+                    </div>
+                    <!-- LAST NAME -->
+                    <div class="md-form mb-5">
 
-                    <i class="fas fa-lock prefix grey-text"></i>
-                    <input type="password" id="defaultForm-pass" name='password' class="form-control validate"
-                        maxlength="25" minlength="4" required>
-                    <label data-error="wrong" data-success="right" for="password">New password</label>
-                </div>
-                <div class="md-form mb-4">
-                    <i class="fas fa-lock prefix grey-text"></i>
-                    <input type="password" id="defaultForm-pass" name='password2' class="form-control validate"
-                        maxlength="25" minlength="4" required>
-                    <label data-error="wrong" data-success="right" for="password2">Confirm Password</label>
-                </div>
+                        <input type="text" id="defaultForm-last" name='last_name' class="form-control validate"
+                            maxlength="25" minlength="2" required>
+                        <label data-error="wrong" data-success="right" for="last_name"> Last Name</label>
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="md-form mb-5">
+                        {% if email_err_msg %}
+                        <p class="text-danger">{{email_err_msg}}</p>
+                        {% endif %}
+
+                        <input type="email" id="defaultForm-email" name='email' class="form-control validate"
+                            maxlength="25" minlength="2" required>
+                        <label data-error="wrong" data-success="right" for="email"><i
+                                class="fas fa-envelope prefix"></i>
+                            Email </label>
+                    </div>
+                    <!-- USERNAME -->
+                    <div class="md-form mb-5">
+
+                        {% if username_err_msg %}
+                        <p class="text-danger">{{username_err_msg}}</p>
+                        {% endif %}
+
+                        <input type="text" id="defaultForm-username" name='username' class="form-control validate"
+                            maxlength="25" minlength="2" required>
+                        <label data-error="wrong" data-success="right" for="username">Username</label>
+                    </div>
+
+
+
+                    <!-- NEW PASSWORD -->
+                    <div class="md-form mb-4">
+
+                        {% if pass_err_msg %}
+                        <p class="text-danger">{{pass_err_msg}}</p>
+                        {% endif %}
+
+                        <input type="password" id="defaultForm-pass" name='password' class="form-control validate"
+                            maxlength="25" minlength="4" required>
+                        <label data-error="wrong" data-success="right" for="password"> <i
+                                class="fas fa-lock prefix grey-text"></i> New password</label>
+                    </div>
+                    <!-- CONFIRM PASSSWORD -->
+                    <div class="md-form mb-4">
+                        <input type="password" id="defaultForm-pass" name='password2' class="form-control validate"
+                            maxlength="25" minlength="4" required>
+                        <label data-error="wrong" data-success="right" for="password2"><i
+                                class="fas fa-lock prefix grey-text"></i> Confirm Password</label>
+                    </div>
 
 
 
@@ -122,6 +133,7 @@
 
 
             </div>
+
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
 
@@ -129,16 +141,17 @@
                     <p class="text-danger">{{login_err_msg}}</p>
                     {% endif %}
 
-                    <i class="fas fa-envelope prefix grey-text"></i>
+
                     <input type="text" id="defaultForm-username" name='username' class="form-control validate"
                         maxlength="25" minlength="2" required>
-                    <label data-error="wrong" data-success="right" for="username">Your Username</label>
+                    <label data-error="wrong" data-success="right" for="username">Username</label>
                 </div>
                 <div class="md-form mb-4">
-                    <i class="fas fa-lock prefix grey-text"></i>
+
                     <input type="password" id="defaultForm-pass" name='password' class="form-control validate"
                         maxlength="25" minlength="4" required>
-                    <label data-error="wrong" data-success="right" for="password">Your password</label>
+                    <label data-error="wrong" data-success="right" for="password"><i
+                            class="fas fa-lock prefix grey-text"></i> password</label>
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-center">
