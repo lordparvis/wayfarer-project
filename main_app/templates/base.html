@@ -31,14 +31,16 @@
         <div class="d-flex flex-grow-1">
             <span class="w-100 d-lg-none d-block">
             </span>
-            <h2 class="navbar-brand">
+            <a href="{% url 'home' %}"><img src="{%static 'images/logo.png'%}" alt="wayfarer logo" height="85px"></a>
+            <!-- <h2 class="navbar-brand">
                 WAYFARER
-            </h2>
-
+            </h2> -->
+            
         </div>
         <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
             <ul class="navbar-nav ml-auto flex-nowrap">
                 {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link btn btn-default btn-rounded mb-4" href="{% url 'profile' %}">(Profile)</a></li>
                 <li class="nav-item">
                     <a class=" nav-link btn btn-default btn-rounded mb-4" href="{% url 'logout' %}">Logout</a>
                 </li>
@@ -55,19 +57,28 @@
                         data-target="#modalLoginForm"> Login
                     </a>
                 </li>
+                
                 {% endif %}
+                
             </ul>
         </div>
     </nav>
-    
-    
+
     {% block content%}
 
     {% endblock%}
 
-<div class="footer">
-    <p>Footer</p>
-</div>
+    <!-- Bootstrap Footer -->
 
+    
+    <!-- <footer id="sticky-footer" class="py-4 bg-dark text-black-50">
+        <div class="fixed-bottom">
+        </div>
+    </footer> -->
+    
+
+
+<p>Copyright 2020 &copy; Created by Temple</p>
+    
 </body>
 </html>

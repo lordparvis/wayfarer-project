@@ -32,6 +32,80 @@ slider>* {
 
 slide {
     height: 100%;
+<<<<<<< HEAD
+}
+
+slide:nth-child(1) {
+    left: 0%;
+    animation-delay: -1s;
+    background-image: url("../images/angeles.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: opacity(80%);
+}
+
+slide:nth-child(2) {
+    left: 100%;
+    animation-delay: 2s;
+    background-image: url("../images/sanfrancisco.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: opacity(80%);
+}
+
+slide:nth-child(3) {
+    left: 100%;
+    animation-delay: 5s;
+    background-image: url("../images/brooklyn.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: opacity(80%);
+}
+
+slide:nth-child(4) {
+    left: 100%;
+    animation-delay: 8s;
+    background-image: url("../images/japan.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: opacity(80%);
+}
+
+slide p {
+    font-family: Comfortaa;
+    font-size: 70px;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    margin-top: 340px;
+    color: #fff;
+    letter-spacing: 0.2em;
+}
+
+@keyframes slide {
+    0% {
+        left: 100%;
+        width: 100%;
+    }
+    5% {
+        left: 0%;
+    }
+    25% {
+        left: 0%;
+    }
+    30% {
+        left: -100%;
+        width: 100%;
+    }
+    30.0001% {
+        left: -100%;
+        width: 0%;
+    }
+    100% {
+        left: 100%;
+        width: 0%;
+    }
+=======
 }
 
 slide:nth-child(1) {
@@ -109,6 +183,44 @@ slide p {
 
 /* NAV */
 
+.navbar {
+    background-color: #ED2945;
+    color: #F9F9F9;
+    height: 80px;
+    /* opacity: 1; */
+}
+
+.form {
+    color: #F9F9F9;
+    width: 100px;
+    height: 80px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 18px !important;
+}
+
+.form:hover {
+    background-color: #C22439;
+    color: #F9F9F9;
+>>>>>>> submaster
+}
+
+.brand {
+    color: white;
+    width: 240px;
+    height: 45px;
+    letter-spacing: 0.2em;
+    margin: 20px 20px;
+    text-align: center;
+    align-items: center;
+    padding: 0px;
+    font-size: 35px !important;
+    line-height: 25px !important;
+}
+
+<<<<<<< HEAD
+/* NAV */
+
 .container {
     height: 80px !important;
     margin: 5px 10px !important;
@@ -150,6 +262,9 @@ slide p {
 
 .brand:hover {
     color: darkgrey;
+=======
+.brand:hover {
+    color: darkgrey;
 }
 
 .d-flex {
@@ -157,6 +272,42 @@ slide p {
 }
 
 
+/* The class that hold the h1 */
+
+.about {
+    position: relative;
+    top: 700px;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* The container that holds the message*/
+
+.container {
+    background-color: #f5f5f5;
+    position: relative;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 12% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+    width: 100vh;
+    top: 900px;
+    border-radius: 10%;
+    height: 80px !important;
+>>>>>>> submaster
+}
+
+.d-flex {
+    width: 20px !important;
+}
+
+/* .container{
+
+<<<<<<< HEAD
 /* The class that hold the h1 */
 
 .about {
@@ -223,6 +374,71 @@ slide p {
     font-family: 'Poppins', sans-serif;
     padding: 10px 10px !important;
     color: rgb(245, 245, 245);
+=======
+margin: 5px 10px !important;
+
+} */
+
+.card {
+    width: 300px;
+    height: 390px;
+    /* box-shadow: 5px 10px 18px grey; */
+    border-radius: 10% !important;
+    padding-bottom: 10% !important;
+    background-color: whitesmoke;
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.card p {
+    /* color: darkgrey; */
+    color: rgb(32, 32, 32);
+    text-align: start;
+    font-family: 'Poppins', sans-serif;
+    word-spacing: 3px;
+}
+
+
+/* To adjust the topic text to center */
+
+.card-body {
+    background-color: #f9f9f9;
+    text-align: center;
+    border-radius: 10%;
+}
+
+
+/* styling the topic class */
+
+.topic {
+    border-radius: 15px 15px 0px 0px;
+    background-color: #ED2945;
+    text-align: center;
+    font-size: 1.4em;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 10px !important;
+    color: rgb(245, 245, 245);
+    border: 1px solid #353535;
+    padding: 5px;
+    box-shadow: 1px 5px 15px 2px #888888;
+}
+
+
+/* Sticky Footer Classes */
+
+
+/* #page-content {
+  flex: 1 0 auto;
+} */
+
+.footer-container {
+    /* position: relative; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ED2945;
+    color: white;
+    text-align: center;
+>>>>>>> submaster
 }
 
 .login-box-button {
