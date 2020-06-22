@@ -1,4 +1,4 @@
-{% extends 'base.html'%} 
+{% extends 'base.html'%}
 
 {%block content%}
 
@@ -12,20 +12,21 @@
                     <p> First Name: {{user.first_name}}</p>
                     <p> Last Name: {{user.last_name}}</p>
                     <p> Date Joined: {{user.date_joined}}</p>
-                    <p> Home Town: {{user.profile.city}}</p>
+                    <p> City: {{user.profile.city}}</p>
                     <div>
                         <a href="{% url 'edit' user.profile.id %}">Edit</a>
+
                     </div>
                 </div>
             </div>
         </div>
-
+        <!-- 
         <form action="{%url 'profile'%}" method="POST">
 
             {%csrf_token%}
             {{profile_form.as_p}}
             <input type="submit">
-        </form>
+        </form> -->
 
 
     </div>
@@ -46,7 +47,6 @@
     </div>
 </div>
 
-{{user.profile.city}}
 
 
 
