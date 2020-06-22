@@ -40,7 +40,6 @@ def profile(request):
     return render(request, 'profile/profile.html', context)
 
 
-
 # Normal Post
 @login_required
 def post(request):
@@ -66,12 +65,13 @@ def profile_edit(request, profile_id):
     profile_form = Profile_Form()
     if request.method == 'POST':
         profile_form = Profile_Form(request.POST, instance=profile)
-        if profile_form.is_valid():
-            profile_form.save()
-            return redirect('profile')
+    if profile_form.is_valid():
+        profile_form.save()
+        return redirect('profile')
     else:
         profile_form = Profile_Form(instance=profile)
-    context = {'profile': profile, 'profile_form': profile_form}
+    context = {'profile': profile,
+               'profile_form': profile_form, 'profile_id': profile_id}
     return render(request, 'profile/edit.html', context)
 
 
