@@ -4,7 +4,7 @@
 {% block content%}
 {%for city in cities%}
 
-<div class='card'>
+<div>
 
     <a href="{% url 'detail' city.id%}" display="inline">{{city.name}}</a>
 
@@ -12,6 +12,46 @@
 {%endfor%}
 
 
+
+<!-- testing water down there  -->
+
+
+
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- testing water up there  -->
 
 <h1>{{city.name}}</h1>
 <h5> Country {{city.country}} </h5>
@@ -27,15 +67,44 @@
     <input type="submit" value="submit">
 
 </form>
+
+<a href=""><button>Add Post</button></a>
+
+
+
+
+
 {%for posts in post%}
 
 <a href="{%url 'post_detail' posts.id%}">
     <p> Title: {{posts.title}} </p>
 </a>
+
 <p> Content: {{posts.content}} </p>
 <p>User: {{posts.user}}</p>
 {%if posts.user == request.user%}
 <a href="{%url 'post_edit' posts.id%}"> Edit </a>
+
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="{%url 'delete' posts.id%}"> <button type="button" class="btn btn-primary"> Delete</button></a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <a href="{%url 'delete' posts.id%}"> Delete</a>
 
 {%endif%}
