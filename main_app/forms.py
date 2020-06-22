@@ -4,10 +4,11 @@ from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
 
 
+
 class Profile_Form(ModelForm):
     class Meta:
-        model=Profile
-        fields=['city']
+        model = Profile
+        fields = ['city']
 
 
 class Post_Form(ModelForm):

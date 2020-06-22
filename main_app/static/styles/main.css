@@ -169,21 +169,20 @@ slide p {
     position: relative;
     margin-left: auto !important;
     margin-right: auto !important;
-    margin-top: 12% !important;
+    /* margin-top: 12% !important; */
     display: flex !important;
     flex-direction: row !important;
     justify-content: space-between !important;
-    align-items: flex-end !important;
-    width: 100vh;
-    top: 900px;
+    align-items: center !important;
+    width:100vh;
+    top:900px;
     border-radius: 10%;
-    height: 80px !important;
+    height:500px !important;
 }
 
 .d-flex {
     width: 20px !important;
 }
-
 
 /* .container{
 
@@ -191,15 +190,18 @@ margin: 5px 10px !important;
 
 } */
 
+
 .card {
     width: 300px;
-    height: 390px;
-    /* box-shadow: 5px 10px 18px grey; */
-    border-radius: 10% !important;
-    padding-bottom: 10% !important;
-    background-color: whitesmoke;
-    box-shadow: 5px 10px 18px #888888;
+/* height: 390px; */
+/* box-shadow: 5px 10px 18px grey; */
+border-radius: 10% !important;
+/* padding-bottom: 10% !important; */
+background-color: whitesmoke;
+box-shadow: 5px 10px 18px #888888;
 }
+
+
 
 .card p {
     /* color: darkgrey; */
@@ -212,11 +214,16 @@ margin: 5px 10px !important;
 
 /* To adjust the topic text to center */
 
-.card-body {
-    background-color: #f9f9f9;
-    text-align: center;
-    border-radius: 10%;
-}
+
+
+
+/* To adjust the topic text to center */
+.card-body{
+position: relative;
+background-color: #f9f9f9;
+text-align: center;
+border-radius: 10%;
+margin-bottom: 0px;
 
 
 /* styling the topic class */
@@ -235,6 +242,30 @@ margin: 5px 10px !important;
 }
 
 
+svg{
+  color: #000000a1 !important;
+}
+
+
+/* html {
+    height: 100%;
+  } */
+  /* body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; Avoid the IE 10-11 `min-height` bug.
+  } */
+
+  /* .content {
+    flex: 1 0 auto; Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. 
+    padding: 20px;
+  }
+  .footer {
+    flex-shrink: 0; Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. 
+    padding: 20px;
+  } */
+
+
 /* Sticky Footer Classes */
 
 
@@ -242,15 +273,18 @@ margin: 5px 10px !important;
   flex: 1 0 auto;
 } */
 
-.footer-container {
-    /* position: relative; */
+
+/* .footer-container{
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: #ED2945;
     color: white;
     text-align: center;
-}
+    top: 1200px;  
+} */
+
 
 .login-box-button {
     position: fixed;
@@ -261,3 +295,24 @@ margin: 5px 10px !important;
     padding-right: 15px;
     padding-left: 15px;
 }
+
+
+/* #slider{
+    position: absolute;
+    top: 0 !important;
+    width: 100%;
+
+} */
+
+/* .footer-container{
+    position: absolute;
+    bottom: 0 !important;
+    width: 100%;
+    text-align: left;
+    Set the fixed height of the footer here
+    height: 100px;
+    background-color: #ED2945;
+  } */
+
+  
+
