@@ -7,13 +7,13 @@
 
 
 
-<div class="col user-posts">
+<div class="col">
     <a class="btn btn-primary" href="{%url 'post'%}"> POST</a>
     {%for cities in city%}
-    <div class="row">
-        <div class="card" style="height: 50px">
+    <div class="row cities-row">
+        <div class="card" style="height: 150px">
             <div class="card-body">
-                <img src={{cities.img.url}} alt="{{cities.name}}" width="100" height="100">
+                <img src={{cities.img.url}} alt="{{cities.name}}" width="100px" height="100px">
                 <h5 class="card-title">
                     <a href="{% url 'detail' cities.id%}" display="inline">{{cities.name}}</a>
                 </h5>

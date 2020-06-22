@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+#from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
@@ -14,6 +15,7 @@ from .models import City
 from .forms import EditProfileForm
 from .forms import Post_Form
 from .forms import Profile_Form
+from .forms import EditProfileForm
 
 # Create your views here.
 
