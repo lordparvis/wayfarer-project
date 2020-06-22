@@ -12,7 +12,7 @@ class Profile(models.Model):
     date=models.DateField(auto_now_add=True)
     image=models.ImageField(upload_to="profil_img", blank=True)
     user= models.OneToOneField(User,on_delete=models.CASCADE)
-  
+
     def __str__(self):
         return f"{self.name} {self.user}"
 
@@ -32,7 +32,6 @@ class Post(models.Model):
     cities= models.ForeignKey(City, on_delete=models.CASCADE, related_name='post')
     content = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
-   
 
     def __str__(self):
         return f"{self.title} by {self.user} on {self.created_date}"
