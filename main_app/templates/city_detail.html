@@ -25,6 +25,7 @@
 <p>User: {{posts.user}}</p>
 {%if posts.user == request.user%}
 <a href="{%url 'post_edit' posts.id%}"> Edit </a>
+<a href="{%url 'delete' posts.id%}"> Delete</a>
 
 {%endif%}
 
