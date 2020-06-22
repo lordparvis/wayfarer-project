@@ -224,6 +224,11 @@ border-radius: 10%;
 margin-bottom: 0px;
 }
 
+/* each city row on the city */
+.cities-row {
+    margin: 8px;
+}
+
 /* styling the topic class */
 
 .topic {
