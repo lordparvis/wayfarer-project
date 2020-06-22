@@ -176,8 +176,8 @@ slide p {
     flex-direction: row !important;
     justify-content: space-between !important;
     align-items: center !important;
-    width:100vh;
-    top:700px;
+    width: 100vh;
+    top: 700px;
     border-radius: 10%;
     height: 500px !important;
 }
@@ -188,9 +188,7 @@ slide p {
 
 
 /* .container{
-
 margin: 5px 10px !important;
-
 } */
 
 .card {
@@ -217,18 +215,21 @@ margin: 5px 10px !important;
 
 /* To adjust the topic text to center */
 
-.card-body{
-position: relative;
-background-color: #f9f9f9;
-text-align: center;
-border-radius: 10%;
-margin-bottom: 0px;
+.card-body {
+    position: relative;
+    background-color: #f9f9f9;
+    text-align: center;
+    border-radius: 10%;
+    margin-bottom: 0px;
 }
 
+
 /* each city row on the city */
+
 .cities-row {
     margin: 8px;
 }
+
 
 /* styling the topic class */
 
@@ -292,8 +293,7 @@ svg {
 } */
 
 .login-box-button {
-    position: fixed;
-    /* margin-left: 450px;*/
+    margin-left: 450px !important;
 }
 
 .footer {
@@ -306,15 +306,14 @@ svg {
     position: absolute;
     top: 0 !important;
     width: 100%;
-
 } */
-
 
 
 .container-f{
     color: whitesmoke;
     font-size: .85em;
     border-radius: 15px 15px 0px 0px;
+
     position: absolute;
     bottom: 0 !important;
     width: 100%;
@@ -325,17 +324,5 @@ svg {
     background-color: rgba(237, 41, 70, 0.952);
     margin-block-end: -100px;
     text-shadow: 2px 1px 5px #000000e1;
+}
 
-
-  } 
-
-  /* border-radius: 15px 15px 0px 0px;
-    background-color: #ED2945;
-    text-align: center;
-    font-size: 1.4em;
-    font-family: 'Poppins', sans-serif;
-    padding: 10px 10px !important;
-    color: rgb(245, 245, 245);
-    border: 1px solid #353535;
-    padding: 5px;
-    box-shadow: 1px 5px 15px 2px #888888; */
