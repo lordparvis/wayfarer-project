@@ -61,17 +61,17 @@ def post(request):
 
 # Profile Edit && Update
 def profile_edit(request, profile_id):
-  profile = Profile.objects.get(id=profile_id)
-  profile_form = Profile_Form()
-  if request.method == 'POST':
-    profile_form = Profile_Form(request.POST, instance=profile)
+    profile = Profile.objects.get(id=profile_id)
+    profile_form = Profile_Form()
+    if request.method == 'POST':
+        profile_form = Profile_Form(request.POST, instance=profile)
     if profile_form.is_valid():
-      profile_form.save()
-      return redirect('profile')
-  else:
-    profile_form = Profile_Form(instance=profile)
-  context = {'profile': profile, 'profile_form': profile_form}
-  return render(request, 'profile/edit.html', context)
+        profile_form.save()
+        return redirect('profile')
+    else:
+        profile_form = Profile_Form(instance=profile)
+    context = {'profile': profile, 'profile_form': profile_form, 'profile_id': profile_id}
+    return render(request, 'profile/edit.html', context)
 
 
 @login_required
@@ -123,6 +123,7 @@ def signup(request):
         email_form=request.POST['email']
         password=request.POST['password']
         password2=request.POST['password2']
+        city = request.POST['city']
         signUp_error = False
         if password ==password2:
 
@@ -145,7 +146,14 @@ def signup(request):
                         first_name=first_name,
                         last_name=last_name
                     )
-                user.save()
+                    user.save()
+                    print(saved_user)
+                    profile = Profile.objects.create(
+                        name = username_form,
+                        city = city,
+                        user_id = user.id
+                    )
+                    profile.save()
                 return redirect('home')
         else:
             # signUp_error = True
