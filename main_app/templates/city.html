@@ -4,13 +4,33 @@
 
 {% block content%}
 
-{%for cities in city%}
+<!-- {%for cities in city%} -->
 
-<a href="{%url 'detail' cities.id%}">
-    {{cities.name}}
-</a>
+<!-- <a href="{%url 'detail' cities.id%}"> -->
+    <!-- {{cities.name}} -->
+<!-- </a> -->
 
 
-{%endfor%}
+<!-- {%endfor%} -->
+
+
+<div class="col user-posts">
+    <a class="btn btn-primary" href="{%url 'post'%}"> POST</a>
+    {%for cities in city%}
+    <div class="row">
+        <div class="card" style="height: 50px">
+            <div class="card-body">
+                <img src={{cities.img.url}} alt="{{cities.name}}" width="100" height="100">
+                <h5 class="card-title">
+                    <a href="{% url 'detail' cities.id%}" display="inline">{{cities.name}}</a>
+                </h5>
+            </div>
+        </div>
+    </div>
+
+    {%endfor%}
+
+</div>
+
 
 {% endblock%}

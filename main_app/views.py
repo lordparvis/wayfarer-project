@@ -61,17 +61,17 @@ def post(request):
 
 # Profile Edit && Update
 def profile_edit(request, profile_id):
-  profile = Profile.objects.get(id=profile_id)
-  profile_form = Profile_Form()
-  if request.method == 'POST':
-    profile_form = Profile_Form(request.POST, instance=profile)
+    profile = Profile.objects.get(id=profile_id)
+    profile_form = Profile_Form()
+    if request.method == 'POST':
+        profile_form = Profile_Form(request.POST, instance=profile)
     if profile_form.is_valid():
-      profile_form.save()
-      return redirect('profile')
-  else:
-    profile_form = Profile_Form(instance=profile)
-  context = {'profile': profile, 'profile_form': profile_form}
-  return render(request, 'profile/edit.html', context)
+        profile_form.save()
+        return redirect('profile')
+    else:
+        profile_form = Profile_Form(instance=profile)
+    context = {'profile': profile, 'profile_form': profile_form, 'profile_id': profile_id}
+    return render(request, 'profile/edit.html', context)
 
 
 @login_required
