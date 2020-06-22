@@ -1,0 +1,62 @@
+.card3{
+
+    max-width: 250px;
+    margin: auto;
+}
+
+
+  li{
+    list-style: none;
+    text-transform: uppercase;    
+    color: rgba(218, 223, 225, 1);
+    font-size: 11px;
+    text-align: right;
+    
+}
+
+img{
+    border-radius: 50%;
+    border: rgba(131,205,144) 4px solid;
+    width: 50% ;
+    margin: 20px auto 5px;     
+
+
+}
+
+#rating{
+    
+background-color: rgba(243, 243, 243, 1);
+
+}
+h3{
+font-size: 15px;
+
+}
+
+.fa-star{
+
+    color:orange;
+}
+
+footer{
+    background-color: rgba(131,205,144);
+    padding: 20px;
+    letter-spacing: 2em ;
+
+}
+
+.price p {
+    color: rgba(180, 180,180,1);
+    font-size: 15px;
+
+}
+
+#phone{
+
+color: white;
+}
+
+
+#comment{
+    color:white;
+}
