@@ -1,0 +1,10 @@
+#post-card {
+    border: #ED2945 3px solid !important;
+    margin-top: 10px;
+    border-radius: 50px;
+}
+
+.post-container {
+    height: 100vh;
+    justify-content: center;
+}

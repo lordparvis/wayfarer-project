@@ -31,20 +31,11 @@ def home(request):
 
 @login_required
 def profile(request):
-    if request.method == 'POST':
-        profile_form = Profile_Form(request.POST)
-        if profile_form.is_valid() and request.user.is_authenticated:
-            new_profile = profile_form.save(commit=False)
-            new_profile.user = request.user
-            new_profile.save()
-    else:
-        profile_form = Profile_Form()
-    city = City.objects.all()
+    city = City.objects.get(id=1)
     user = request.user
     post = Post.objects.filter(user=request.user)
-    # profile=Profile.objects.filter(user=request.user)
-    context = {'profile_form': profile_form,
-               'user': user, 'post': post, 'city': city}
+    context = {
+        'user': user, 'post': post, 'city': city}
     return render(request, 'profile/profile.html', context)
 
 
