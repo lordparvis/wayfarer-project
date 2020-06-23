@@ -325,3 +325,16 @@ svg {
     margin-block-end: -750px;
     text-shadow: 2px 1px 5px #000000e1;
   } 
+
+
+
+  #id_password{
+      display: none !important;
+  }
+
+ .helptext{
+
+     display: none !important;
+
+ }
+  

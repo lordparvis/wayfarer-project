@@ -67,7 +67,7 @@ def post(request):
 
 # Profile Edit & & Update
 
-# @login_required
+@login_required
 def profile_edit(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
     profile_form = Profile_Form()
@@ -139,12 +139,13 @@ def post_edit(request, post_id):
 @login_required
 def post_delete(request, post_id):
     Post.objects.get(id=post_id).delete()
+
     return redirect('profile')
 
 
 # City
 
-
+@login_required
 def city(request):
     city = City.objects.all()
     context = {'city': city}
@@ -152,6 +153,7 @@ def city(request):
 
 
 # City Show Page
+@login_required
 def detail_city(request, city_id):
     city = City.objects.get(id=city_id)
     if request.method == 'POST':

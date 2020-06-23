@@ -1,18 +1,19 @@
 
 
-.container1 {
+/* .container1 {
 position: relative;
-width: 70%;
-margin:10px auto;
+width: 20%;
 border: #ED2945 1px solid;
 border-radius:70px 70px;
 box-shadow: 2px 2px 4px#DA5A53;
+background-color: darkmagenta !important;
+align-items: center;
 }
 
 .image {
 opacity: 1;
 display: block;
-width: 100%;
+width: 20%;
 height: auto;
 transition: .5s ease;
 backface-visibility: hidden;
@@ -36,9 +37,9 @@ opacity: 0.8;
 
 .container1:hover .middle {
 opacity: 1;
-}
+} */
 
-.text {
+/* .text {
 background-color: #DA5A53;
 color: white;
 font-size: 16px;
@@ -73,6 +74,46 @@ color: darkgrey;
 
 
 
+} */
+
+
+
+
+
+/* Yesting */
+
+
+img{
+border-radius: 10px !important ;
+border:red 2px 2px 3px solid !important;
+
+
 }
 
 
+.scroll{
+display:block !important;
+overflow: auto !important;
+
+}
+
+/* .huge{
+
+max-height: max-content !important;
+
+} */
+
+.title-post{
+
+text-transform: capitalize;
+
+}
+
+.cityname{
+font-size:2em !important;
+
+}
+
+.header{
+font-size:2em !important ;
+}
