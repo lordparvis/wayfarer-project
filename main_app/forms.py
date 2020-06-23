@@ -19,6 +19,7 @@ class Post_Form(ModelForm):
 
 class EditProfileForm(UserChangeForm):
     password = None
+
     class Meta:
         model = User
         fields = (

@@ -2,72 +2,6 @@
 
 {%block content%}
 
-<!-- <div class="row">
-    <div class="col user-data">
-        <div class="card">
-            <div class="card-body">
-                <div class="card-text">
-                    <p> Username: {{user.username}}</p>
-                    <p> First Name: {{user.first_name}}</p>
-                    <p> Last Name: {{user.last_name}}</p>
-                    <p> Email: {{user.email}}</p>
-                    <p> City: {{user.profile.city}}</p>
-                    <p> Date Joined: {{user.date_joined}}</p>
-                    <div>
-                        
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-<!-- Testing Water 1 -->
-<!-- <div class="card3">
-    <header>
-        <li> <a href="{% url 'edit' user.profile.id %}">Edit Profile</a> </li>
-        <img src="https://picsum.photos/200/200" alt="john">
-        <h2>{{user.username}}</h2>
-    </header>
-
-    <section id="rating">
-        <p>{{user.first_name}} {{user.last_name}}</p>
-        <p>Email: {{user.email}}</p>
-    </section>
-    <section class="price">
-
-
-        <p> City: {{user.profile.city}}</p>
-        <p> Date Joined: {{user.date_joined}}</p>
-    </section>
-
-    <footer>
-
-        <i id="phone" class="fas fa-phone"></i> <i id="comment" class="fas fa-comment-dots"></i>
-
-    </footer>
-
-
-</div> -->
-<!-- Testing End 1 -->
-
-<!-- POST -->
-<!-- <div class="col user-posts">
-    <a class="btn btn-primary" href="{%url 'post'%}"> POST</a>
-    <a href="{%url 'city'%}"> City</a>
-    {%for posts in post%}
-    <div class="row">
-        <div class="card" style="height: 50px">
-            <div class="card-body">
-                <h5 class="card-title"><a href="{% url 'post_detail' posts.id %}">{{posts.title}}</a></h5>
-            </div>
-        </div>
-    </div>
-
-    {%endfor%}
-
-</div>
-</div> -->
 
 <!-- Profile Section -->
 <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
@@ -99,11 +33,13 @@
         <div class=" w3-col m7">
 
             <div class="w3-container w3-card w3-white w3-round w3-margin right-box"><br>
-
+                <!-- link that take u to city page  -->
                 <a href="{%url 'detail' city.id%}" class='btn btn-primary'> Check Cities</a>
                 <br>
                 <br>
                 <hr>
+                <!-- link -->
+                <!-- List of Post -->
                 {%for posts in post%}
                 <div class='ifk'>
 
@@ -129,7 +65,6 @@
 </div>
 
 <br>
-
 
 
 
