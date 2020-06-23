@@ -1,8 +1,4 @@
 {% extends 'base.html' %}
-{% load static %}
-
-
-<link rel="stylesheet" href="{%static 'styles/postDetail.css'%}">
 
 {% block content %}
 
@@ -29,10 +25,10 @@
 </div>
 
 
-<div class="post-container m-auto">
-    <div id="post-card" class="card m-auto">
+<div class="post-container">
+    <div id="post-card" class="card mx-auto">
         <div class="card-body">
-            <h1 class="card-title"> title: {{post.title}}</h1>
+            <h1 class="card-title text-capitalize"> Title: {{post.title}}</h1>
             <h3>{{post.cities}}</h3>
             <div class="card-text">
                 Content: {{post.content}}
