@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
+
+
+<link rel="stylesheet" href="{%static 'styles/postDetail.css'%}">
 
 {% block content %}
 
@@ -25,8 +29,8 @@
 </div>
 
 
-<div class="col">
-    <div class="card mx-auto">
+<div class="post-container m-auto">
+    <div id="post-card" class="card m-auto">
         <div class="card-body">
             <h1 class="card-title"> title: {{post.title}}</h1>
             <h3>{{post.cities}}</h3>
@@ -34,8 +38,8 @@
                 Content: {{post.content}}
             </div>
         </div>
-        <a href="{%url 'post_edit' post.id%}"> Edit</a>
-        <a href="" class=" nav-link btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#deleteModal">Delete</a>
+        <a href="{%url 'post_edit' post.id%}" class="nav-link btn btn-default btn-rounded" margin='0'> Edit</a>
+        <a href="" class=" nav-link btn btn-default btn-rounded" data-toggle="modal" data-target="#deleteModal">Delete</a>
     </div>
 </div>
 
