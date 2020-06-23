@@ -73,7 +73,10 @@
 </a>
 
 <p> Content: {{posts.content}} </p>
-<p>User: {{posts.user}}</p>
+<a href="{%url 'profile'%}">
+    <p>User: {{posts.user}}</p>
+</a>
+
 
 {%if posts.user == request.user%}
 <a href="{%url 'post_edit' posts.id%}"> Edit </a>
