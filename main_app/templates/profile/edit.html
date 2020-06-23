@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<section class="post-edit-section">
+    <div id="post-edit-div">
+        <h1>Edit {{user.username}}</h1>
+        <form action="{% url 'edit' profile.id %}" method="POST">
+            {% csrf_token %}
 
-<h1>Edit {{user.username}}</h1>
-<form action="{% url 'edit' profile.id %}" method="POST">
-    {% csrf_token %}
+            {{profile_form.as_p}}
 
-    {{profile_form.as_p}}
-
-    {{user_form.as_p}}
-    <input type="submit" value="Update">
-
+            {{user_form.as_p}}
+            <input type="submit" value="Update">
+        </div>
+    </section>
 </form>
 
 
