@@ -144,7 +144,7 @@ def detail_city(request, city_id):
 
 # Sign Up
 
-
+# giving default error message values
 pass_err_msg = ''
 email_err_msg = ''
 username_err_msg = ''
@@ -164,7 +164,7 @@ def signup(request):
         if password == password2:
 
             if User.objects.filter(username=username_form).exists():
-                # signUp_error = True
+                signUp_error = True
                 context = {'username_err_msg': 'Username already exists',
                            'signUp_error': 'signUp_error', 'username_err_msg': 'Username already in use'}
                 return render(request, 'home.html', context)
@@ -175,7 +175,7 @@ def signup(request):
                         'email_err_msg': 'Email already linked to account', 'signUp_error': 'signUp_error'}
                     return render(request, 'home.html', context)
                 else:
-
+                    # create a profile for the user at the same time as their user
                     signUp_error = False
 
                     user = User.objects.create_user(
@@ -197,7 +197,7 @@ def signup(request):
                     profile.save()
                 return redirect('home')
         else:
-            # signUp_error = True
+            signUp_error = True
             context = {'pass_err_msg': 'Passwords Do Not Match',
                        'signUp_error': 'signUp_error', 'pass_err_msg': 'Passwords do not match'}
             return render(request, 'home.html', context)
