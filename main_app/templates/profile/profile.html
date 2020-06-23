@@ -105,21 +105,22 @@
                 <br>
                 <hr>
                 {%for posts in post%}
-                <span class="w3-right w3-opacity date">posted: {{posts.created_date}}</span>
-                <br>
+                <div class='ifk'>
 
-                <h3 class="card-title">Title:<a href="{% url 'post_detail' posts.id %} " class='title'>
-                        {{posts.title}}</a></h3>
-                <br>
-                <h3 class='city'>City: <a href="{%url 'detail' posts.cities.id %}" class='city-name'>{{posts.cities}},
-                        {{posts.cities.country}}</a>
-                </h3>
+                    <span class="w3-right w3-opacity date">posted: {{posts.created_date}}</span>
+                    <br>
 
-                <br>
-                <hr>
+                    <h3 class="card-title">Title:<a href="{% url 'post_detail' posts.id %}" class='title'>
+                            {{posts.title}}</a></h3>
+                    <br>
+                    <h3 class=' city'>City: <a href="{%url 'detail' posts.cities.id %}"
+                            class='city-name'>{{posts.cities}},
+                            {{posts.cities.country}}</a>
+                    </h3>
 
+                    <hr>
 
-
+                </div>
                 {%endfor%}
             </div>
         </div>
