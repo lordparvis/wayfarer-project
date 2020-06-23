@@ -3,8 +3,8 @@
 {% block content%}
 
 <form action="{%url 'post_edit' post.id %}" method="POST">
-<section class="post-edit-section">
-    <div id="post-edit-div">
+<section class="edit-section">
+    <div id="edit-div">
         {%csrf_token%}
     
         {{post_form.as_p}}
