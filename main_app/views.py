@@ -31,20 +31,11 @@ def home(request):
 
 @login_required
 def profile(request):
-    if request.method == 'POST':
-        profile_form = Profile_Form(request.POST)
-        if profile_form.is_valid() and request.user.is_authenticated:
-            new_profile = profile_form.save(commit=False)
-            new_profile.user = request.user
-            new_profile.save()
-    else:
-        profile_form = Profile_Form()
-    city = City.objects.all()
+    city = City.objects.get(id=1)
     user = request.user
     post = Post.objects.filter(user=request.user)
-    # profile=Profile.objects.filter(user=request.user)
-    context = {'profile_form': profile_form,
-               'user': user, 'post': post, 'city': city}
+    context = {
+        'user': user, 'post': post, 'city': city}
     return render(request, 'profile/profile.html', context)
 
 
@@ -67,7 +58,7 @@ def post(request):
 
 # Profile Edit & & Update
 
-# @login_required
+@login_required
 def profile_edit(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
     profile_form = Profile_Form()
@@ -139,12 +130,13 @@ def post_edit(request, post_id):
 @login_required
 def post_delete(request, post_id):
     Post.objects.get(id=post_id).delete()
+
     return redirect('profile')
 
 
 # City
 
-
+@login_required
 def city(request):
     city = City.objects.all()
     context = {'city': city}
@@ -152,6 +144,7 @@ def city(request):
 
 
 # City Show Page
+@login_required
 def detail_city(request, city_id):
     city = City.objects.get(id=city_id)
     if request.method == 'POST':

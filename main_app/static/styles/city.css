@@ -1,20 +1,23 @@
-.container1 {
-    position: relative;
-    width: 70%;
-    margin:10px auto;
-    border: #ED2945 1px solid;
-    border-radius:70px 70px;
-    box-shadow: 2px 2px 4px#DA5A53;
+
+
+/* .container1 {
+position: relative;
+width: 20%;
+border: #ED2945 1px solid;
+border-radius:70px 70px;
+box-shadow: 2px 2px 4px#DA5A53;
+background-color: darkmagenta !important;
+align-items: center;
 }
 
 .image {
-    opacity: 1;
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: .5s ease;
-    backface-visibility: hidden;
-    border-radius:70px 70px;
+opacity: 1;
+display: block;
+width: 20%;
+height: auto;
+transition: .5s ease;
+backface-visibility: hidden;
+border-radius:70px 70px;
 }
 
 .middle {
@@ -33,18 +36,18 @@
 }
 
 .container1:hover .middle {
-    opacity: 1;
-}
+opacity: 1;
+} */
 
-.text {
-    background-color: #DA5A53;
-    color: white;
-    font-size: 16px;
-    padding: 16px 32px;
-    text-transform: capitalize;
-    letter-spacing: 0.2em;
-    border-radius: 10px;
-    
+/* .text {
+background-color: #DA5A53;
+color: white;
+font-size: 16px;
+padding: 16px 32px;
+text-transform: capitalize;
+letter-spacing: 0.2em;
+border-radius: 10px;
+
 }
 
 .city_link{
@@ -63,7 +66,52 @@ h1 {
 }
 
 .slogan{
-    text-align: center;
-    align-items: center;     
-    color: darkgrey; 
+text-align: center;
+align-items: center;     
+color: darkgrey; 
+
+
+
+} */
+
+
+
+
+
+/* Yesting */
+
+
+img{
+border-radius: 10px !important ;
+border:red 2px 2px 3px solid !important;
+
+
+}
+
+
+.scroll{
+display:block !important;
+overflow: auto !important;
+
+}
+
+/* .huge{
+
+max-height: max-content !important;
+
+} */
+
+.title-post{
+
+text-transform: capitalize;
+
+}
+
+.cityname{
+font-size:2em !important;
+
+}
+
+.header{
+font-size:2em !important ;
 }
