@@ -1,4 +1,4 @@
-{% extends 'base.html'%}
+{% extends 'citybase.html'%}
 
 
 
@@ -7,7 +7,7 @@
 
 
 
-<div class="col">
+<!-- <div class="col">
     <a class="btn btn-primary" href="{%url 'post'%}"> POST</a>
     {%for cities in city%}
     <div class="row cities-row">
@@ -23,7 +23,25 @@
 
     {%endfor%}
 
+</div> -->
+
+
+
+<!-- Testing water -->
+
+{%for cities in city%}
+<div class="container1">
+    <img src="{{cities.img.url}}" alt="{{cities.name}}" class="image" style="width:100%">
+    <div class="middle">
+        <div class="text">{{cities.name}}</div>
+    </div>
 </div>
+{%endfor%}
+
+
+
+
+
 
 
 {% endblock%}
