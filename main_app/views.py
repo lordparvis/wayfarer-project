@@ -56,6 +56,9 @@ def post(request):
 
 
 # Profile Edit & & Update
+# Edit_Profile_Form gets its template from custom form
+# This page will give for each user form their own profile edit form
+#After chaging it saves the state of that form and redirects back to profile
 
 @login_required
 def profile_edit(request, profile_id):
