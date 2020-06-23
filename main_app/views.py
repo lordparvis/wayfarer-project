@@ -39,10 +39,12 @@ def profile(request):
             new_profile.save()
     else:
         profile_form = Profile_Form()
+    city = City.objects.all()
     user = request.user
     post = Post.objects.filter(user=request.user)
     # profile=Profile.objects.filter(user=request.user)
-    context = {'profile_form': profile_form, 'user': user, 'post': post}
+    context = {'profile_form': profile_form,
+               'user': user, 'post': post, 'city': city}
     return render(request, 'profile/profile.html', context)
 
 
