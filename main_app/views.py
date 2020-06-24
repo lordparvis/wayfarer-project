@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 
+# import all at once
+#  from .models import Profile, Post, City
 from .models import Profile
 from .models import Post
 from .models import City
@@ -32,6 +34,7 @@ def home(request):
 def profile(request):
     city = City.objects.get(id=1)
     user = request.user
+    # you have access to posts with user.posts_set.all
     post = Post.objects.filter(user=request.user)
     context = {
         'user': user, 'post': post, 'city': city}
@@ -39,6 +42,7 @@ def profile(request):
 
 
 # Normal Post
+# no longer needed
 @login_required
 def post(request):
     if request.method == "POST":
@@ -55,23 +59,26 @@ def post(request):
     return render(request, 'posts/post.html', context)
 
 
+""" this could be a doc string instead """
 # Profile Edit & & Update
 # Edit_Profile_Form gets its template from custom form
 # This page will give for each user form their own profile edit form
-#After chaging it saves the state of that form and redirects back to profile
+# After chaging it saves the state of that form and redirects back to profile
+
 
 @login_required
 def profile_edit(request, profile_id):
+    """ this is what it does """
     profile = Profile.objects.get(id=profile_id)
     profile_form = Profile_Form()
     user = request.user
     if request.method == 'POST':
         user_form = EditProfileForm(request.POST, instance=request.user)
         profile_form = Profile_Form(request.POST, instance=profile)
-    if profile_form.is_valid() and user_form.is_valid():
-        user_form.save()
-        profile_form.save()
-        return redirect('profile')
+        if profile_form.is_valid() and user_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            return redirect('profile')
     else:
         user_form = EditProfileForm(instance=request.user)
         profile_form = Profile_Form(instance=profile)
@@ -87,14 +94,13 @@ def post_detail(request, post_id):
     context = {'post': post}
     return render(request, 'posts/detail.html', context)
 
+
 # Post Edit
-
-
 @login_required
 def post_edit(request, post_id):
     post = Post.objects.get(id=post_id)
     post_form = Post_Form()
-    user = request.user
+    # user = request.user not needed just use request.user if you need it
     if request.method == 'POST':
         post_form = Post_Form(request.POST, instance=post)
     if post_form.is_valid():
@@ -130,6 +136,7 @@ def detail_city(request, city_id):
     city = City.objects.get(id=city_id)
     if request.method == 'POST':
         post_form = Post_Form(request.POST)
+        # and request.user is not needed because login_required is handling it
         if post_form.is_valid() and request.user.is_authenticated:
             new_post_form = post_form.save(commit=False)
             new_post_form.city = city_id
@@ -140,12 +147,16 @@ def detail_city(request, city_id):
         post_form = Post_Form()
     # the cities is referring to the fk on post model
     cities = City.objects.all()
+    # not needed could use city.posts_set.all
     post = Post.objects.filter(cities=city)
-    context = {'city': city, 'post_form': post_form,'post': post, 'cities': cities}
+    context = {'city': city, 'post_form': post_form,
+               'post': post, 'cities': cities}
     return render(request, 'city_detail.html', context)
 
 # Sign Up
 
+
+# no global variables in views. move to inside each view function
 # giving default error message values
 pass_err_msg = ''
 email_err_msg = ''
@@ -166,7 +177,8 @@ def signup(request):
             # check if username already exists
             if User.objects.filter(username=username_form).exists():
                 signUp_error = True
-                context = {'username_err_msg': 'Username already exists', 'signUp_error': 'signUp_error', 'username_err_msg': 'Username already in use'}
+                context = {'username_err_msg': 'Username already exists',
+                           'signUp_error': 'signUp_error', 'username_err_msg': 'Username already in use'}
                 return render(request, 'home.html', context)
             else:
                 # check if email already exists
@@ -195,12 +207,14 @@ def signup(request):
                 return redirect('home')
         else:
             signUp_error = True
-            context = {'pass_err_msg': 'Passwords Do Not Match', 'signUp_error': 'signUp_error', 'pass_err_msg': 'Passwords do not match'}
+            context = {'pass_err_msg': 'Passwords Do Not Match',
+                       'signUp_error': 'signUp_error', 'pass_err_msg': 'Passwords do not match'}
             return render(request, 'home.html', context)
     else:
         return render(request, 'home.html', context)
 
 # LOGIN
+
 
 def login(request):
     if request.method == 'POST':
@@ -218,8 +232,10 @@ def login(request):
             return redirect('profile')
         else:
             login_error = True
+            # remove prints after use
             print(f"{login_error}")
-            context = {'login_err_msg': 'Invalid Credentials', 'login_error': 'login_error'}
+            context = {'login_err_msg': 'Invalid Credentials',
+                       'login_error': 'login_error'}
             return render(request, 'home.html', context)
     else:
         return render(request, 'home.html')
