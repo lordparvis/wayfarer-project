@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-#from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
@@ -80,29 +79,8 @@ def profile_edit(request, profile_id):
                'profile_form': profile_form, 'profile_id': profile_id, 'user_form': user_form}
     return render(request, 'profile/edit.html', context)
 
-# change password
 
-
-# def change_password(request, profile_id):
-#     profile = Profile.objects.get(id=profile_id)
-
-#     if request.method == 'POST':
-#         form = PasswordChangeForm(
-#             data=request.POST, profile=profile, user=request.user)
-#         if form.is_valid():
-#             form.save()
-#             update_session_auth_hash(request, form.user)
-#             return redirect('change_password')
-#         else:
-#             return redirect('profile')
-#     else:
-#         form = PasswordChangeForm(user=request.user)
-#     context = {'form': form}
-#     return render(request, 'profile/password.html', context)
-
- # Post Detail or Show Page
-
-
+# Post Show page
 @login_required
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
@@ -137,13 +115,13 @@ def post_delete(request, post_id):
     return redirect('profile')
 
 
-# City
+# City is no longer needed
 
-@login_required
-def city(request):
-    city = City.objects.all()
-    context = {'city': city}
-    return render(request, 'city.html', context)
+# @login_required
+# def city(request):
+#     city = City.objects.all()
+#     context = {'city': city}
+#     return render(request, 'city.html', context)
 
 
 # City Show Page
