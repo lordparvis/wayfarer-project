@@ -25,8 +25,11 @@
                     {%for city in cities %}
                     <br>
                     <br>
-                    <h2 class="w3-large cityname"><b><i class="fa fa-building fa-fw w3-margin-right w3-text-teal"></i><a
-                                href="{% url 'detail' city.id%}" class='city_link'>{{city.name}}</a></b>
+                    <h2 class="w3-large cityname">
+                        <b>
+                            <i class="fa fa-building fa-fw w3-margin-right w3-text-teal"></i>
+                            <a href="{% url 'detail' city.id%}" class='city_link'>{{city.name}}</a>
+                        </b>
                     </h2>
                     <img src="{{city.img.url}}" alt="{{city.name}}" class="image" style="width:100%">
                     <br>

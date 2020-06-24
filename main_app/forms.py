@@ -17,6 +17,7 @@ class Post_Form(ModelForm):
         fields = ['title', 'content', 'cities']
 
 
+# maybe name this User_Edit_Form
 class EditProfileForm(UserChangeForm):
     # to hide the password related information from edit page
     password = None
@@ -29,4 +30,3 @@ class EditProfileForm(UserChangeForm):
             'last_name',
             'username',
         )
-
