@@ -18,6 +18,7 @@ class Post_Form(ModelForm):
 
 
 class EditProfileForm(UserChangeForm):
+    # to hide the password related information from edit page
     password = None
 
     class Meta:
