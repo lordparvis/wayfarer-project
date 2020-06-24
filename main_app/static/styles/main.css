@@ -193,10 +193,6 @@ slide p {
 }
 
 
-/* .container{
-margin: 5px 10px !important;
-} */
-
 .card {
     width: 300px;
     /* height: 390px; */
@@ -214,10 +210,6 @@ margin: 5px 10px !important;
     font-family: 'Poppins', sans-serif;
     word-spacing: 3px;
 }
-
-
-/* To adjust the topic text to center */
-
 
 /* To adjust the topic text to center */
 
@@ -257,63 +249,9 @@ svg {
 }
 
 
-/* html {
-    height: 100%;
-  } */
-
-
-/* body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; Avoid the IE 10-11 `min-height` bug.
-  } */
-
-
-/* .content {
-    flex: 1 0 auto; Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size.
-    padding: 20px;
-  }
-  .footer {
-    flex-shrink: 0; Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size.
-    padding: 20px;
-  } */
-
-
-/* Sticky Footer Classes */
-
-
-/* #page-content {
-  flex: 1 0 auto;
-} */
-
-
-/* .footer-container{
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #ED2945;
-    color: white;
-    text-align: center;
-    top: 1200px;
-} */
-
 .login-box-button {
     margin-left: 450px !important;
 }
-
-
-/* .footer {
-    padding-right: 15px;
-    padding-left: 15px;
-} */
-
-
-/* #slider{
-    position: absolute;
-    top: 0 !important;
-    width: 100%;
-} */
 
 .container-f {
     color: whitesmoke;

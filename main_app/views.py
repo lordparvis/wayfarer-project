@@ -141,8 +141,7 @@ def detail_city(request, city_id):
     # the cities is referring to the fk on post model
     cities = City.objects.all()
     post = Post.objects.filter(cities=city)
-    context = {'city': city, 'post_form': post_form,
-               'post': post, 'cities': cities}
+    context = {'city': city, 'post_form': post_form,'post': post, 'cities': cities}
     return render(request, 'city_detail.html', context)
 
 # Sign Up
@@ -154,7 +153,6 @@ username_err_msg = ''
 
 
 def signup(request):
-
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -165,13 +163,13 @@ def signup(request):
         city = request.POST['city']
         signUp_error = False
         if password == password2:
-
+            # check if username already exists
             if User.objects.filter(username=username_form).exists():
                 signUp_error = True
-                context = {'username_err_msg': 'Username already exists',
-                           'signUp_error': 'signUp_error', 'username_err_msg': 'Username already in use'}
+                context = {'username_err_msg': 'Username already exists', 'signUp_error': 'signUp_error', 'username_err_msg': 'Username already in use'}
                 return render(request, 'home.html', context)
             else:
+                # check if email already exists
                 if User.objects.filter(email=email_form).exists():
                     signUp_error = True
                     context = {
@@ -180,18 +178,14 @@ def signup(request):
                 else:
                     # create a profile for the user at the same time as their user
                     signUp_error = False
-
                     user = User.objects.create_user(
-
                         username=username_form,
                         email=email_form,
                         password=password,
                         first_name=first_name,
                         last_name=last_name
-
                     )
                     user.save()
-
                     profile = Profile.objects.create(
                         name=username_form,
                         city=city,
@@ -201,14 +195,12 @@ def signup(request):
                 return redirect('home')
         else:
             signUp_error = True
-            context = {'pass_err_msg': 'Passwords Do Not Match',
-                       'signUp_error': 'signUp_error', 'pass_err_msg': 'Passwords do not match'}
+            context = {'pass_err_msg': 'Passwords Do Not Match', 'signUp_error': 'signUp_error', 'pass_err_msg': 'Passwords do not match'}
             return render(request, 'home.html', context)
     else:
         return render(request, 'home.html', context)
 
 # LOGIN
-
 
 def login(request):
     if request.method == 'POST':
@@ -227,8 +219,7 @@ def login(request):
         else:
             login_error = True
             print(f"{login_error}")
-            context = {'login_err_msg': 'Invalid Credentials',
-                       'login_error': 'login_error'}
+            context = {'login_err_msg': 'Invalid Credentials', 'login_error': 'login_error'}
             return render(request, 'home.html', context)
     else:
         return render(request, 'home.html')
