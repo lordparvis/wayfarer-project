@@ -1,0 +1,21 @@
+/* styling for city page */
+img{
+border-radius: 10px !important ;
+border:white 2px 2px 3px solid !important;
+
+}
+
+.title-post{
+
+text-transform: capitalize;
+
+}
+
+.cityname{
+font-size:2em !important;
+
+}
+
+.header{
+font-size:2em !important ;
+}

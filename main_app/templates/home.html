@@ -1,0 +1,271 @@
+{% extends 'base.html'%} {%load static%} {%block content%}
+
+<!-- Sign up form modal-->
+<div class="modal fade" id="modalSignUpForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Sign Up</h4>
+
+                <form action="{% url 'signup' %}" method="POST">
+                    {% csrf_token %}
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body mx-3">
+
+                <!-- FIRST NAME -->
+                <div class="md-form mb-5">
+                    <input type="text" id="defaultForm-firsts" name='first_name' class="form-control validate"
+                        maxlength="25" minlength="2" required>
+
+                    <label data-error="wrong" data-success="right" for="first_name">First Name</label>
+                </div>
+                <!-- LAST NAME -->
+                <div class="md-form mb-5">
+                    <input type="text" id="defaultForm-last" name='last_name' class="form-control validate"
+                        maxlength="25" minlength="2" required>
+                    <label data-error="wrong" data-success="right" for="last_name">Last Name</label>
+
+                </div>
+
+                <!-- EMAIL -->
+                <div class="md-form mb-5">
+                    <!-- if email already in use, display the email error message -->
+                    {% if email_err_msg %}
+                    <p class="text-danger">{{email_err_msg}}</p>
+                    {% endif %}
+
+
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="email" id="defaultForm-email" name='email' class="form-control validate" maxlength="25"
+                        minlength="2" required>
+                    <label data-error="wrong" data-success="right" for="email">Your email</label>
+                </div>
+
+                <!-- CITY -->
+                <div class="md-form mb-5">
+
+                    <i class="fas fa-location-arrow prefix grey-text"></i>
+                    <input type="text" id="defaultForm-city" name='city' class="form-control validate" maxlength="25"
+                        minlength="2" required>
+                    <label data-error="wrong" data-success="right" for="city">Location</label>
+
+                </div>
+
+                <!-- USERNAME -->
+                <div class="md-form mb-5">
+                    <!-- if username taken, display the username taken error message -->
+                    {% if username_err_msg %}
+                    <p class="text-danger">{{username_err_msg}}</p>
+                    {% endif %}
+
+
+                    <input type="text" id="defaultForm-username" name='username' class="form-control validate"
+                        maxlength="25" minlength="2" required>
+                    <label data-error="wrong" data-success="right" for="username">Your Username</label>
+                </div>
+
+                <!-- NEW PASSWORD -->
+                <div class="md-form mb-4">
+                    <!-- if passwords do not match, display the email error message -->
+                    {% if pass_err_msg %}
+                    <p class="text-danger">{{pass_err_msg}}</p>
+                    {% endif %}
+
+
+                    <input type="password" id="defaultForm-pass" name='password' class="form-control validate"
+                        maxlength="25" minlength="4" required>
+                    <label data-error="wrong" data-success="right" for="password">
+                        <i class="fas fa-lock prefix grey-text"></i> New password</label>
+
+                </div>
+                <!-- CONFIRM PASSSWORD -->
+                <div class="md-form mb-4">
+
+                    <input type="password" id="defaultForm-pass" name='password2' class="form-control validate"
+                        maxlength="25" minlength="4" required>
+                    <label data-error="wrong" data-success="right" for="password2"><i
+                            class="fas fa-lock prefix grey-text"></i> Confirm Password</label>
+
+                </div>
+
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button class="btn btn-default login-box-button">Register</button>
+                </form>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Login -->
+<div class="modal fade show" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Please Log In</h4>
+
+                <form action="{% url 'login' %}" method="POST">
+                    {% csrf_token %}
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                    <!-- if username or password do not match/exist, display non-specific error message -->
+                    {% if login_error %}
+                    <p class="text-danger">{{login_err_msg}}</p>
+                    {% endif %}
+
+                    <input type="text" id="defaultForm-username" name='username' class="form-control validate"
+                        maxlength="25" minlength="2" required>
+                    <label data-error="wrong" data-success="right" for="username">Username</label>
+                </div>
+                <div class="md-form mb-4">
+
+                    <input type="password" id="defaultForm-pass" name='password' class="form-control validate"
+                        maxlength="25" minlength="4" required>
+                    <label data-error="wrong" data-success="right" for="password"><i
+                            class="fas fa-lock prefix grey-text"></i> password</label>
+
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button id="login-submit" class="btn btn-default login-box-button">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The slide to create img -->
+<div id="slider">
+    <slider>
+        <slide>
+            <p>Los Angeles</p>
+        </slide>
+
+        <slide>
+            <p>San Francisco</p>
+        </slide>
+
+        <slide>
+            <p>Brooklyn</p>
+
+        </slide>
+
+        <slide>
+            <p>日本</p>
+        </slide>
+
+    </slider>
+</div>
+
+
+<!-- The header -->
+<div class='about'>
+    <!-- <h1> WAYFARER</h1> -->
+    <img src="{%static 'images/logo.png'%}" alt="wayfarer logo" height="230px">
+</div>
+<!-- start -->
+
+
+
+<!-- The Card Section -->
+
+<div class="container home-card-container">
+    <div class="card" style="width: 20rem;">
+
+        <div class="card-body home-card">
+            <header class="topic">
+                <span>About Us</span>
+            </header>
+            <hr>
+            <br>
+            <p class="card-text">
+                Our application provides the fastest features on the internet for people who are looking for places to
+                visit or wondering what location would be their next travel destination.
+            </p>
+
+            <hr>
+            <svg class="bi bi-lightning" width="5em" height="5em" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z" />
+
+            </svg>
+        </div>
+    </div>
+    <div class="card" style="width: 20rem;">
+        <div class="card-body home-card">
+            <header class="topic">
+                <span>Community</span>
+            </header>
+            <hr>
+            <br>
+            <p class="card-text">
+                Our community, is full with fun,energetic people. They will give you the best review and advice that
+                make sure you have a blast. Don't hesitate to give advice to others!
+            </p>
+
+            <hr>
+            <svg class="bi bi-people" width="5.9em" height="5.9em" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.995-.944v-.002.002zM7.022 13h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zm7.973.056v-.002.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
+
+            </svg>
+        </div>
+    </div>
+    <div class="card" style="width: 20rem;">
+
+        <div class="card-body home-card">
+            <header class="topic">
+                <span>Location</span>
+            </header>
+            <hr>
+            <br>
+            <p class="card-text">
+                Currently, we holding 4 big location, that you can discover!
+                <br> 1) Brooklyn
+                <br> 2) Los Angeles
+                <br> 3) San Francisco
+                <br> 4) Japan
+            </p>
+
+            <hr>
+            <svg class="bi bi-geo-alt" width="5em" height="5em" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" /> </svg>
+        </div>
+    </div>
+
+</div>
+
+<!-- These if statements will cause the sign up or login modal to open with their respective errors after the user hits submit -->
+{% if login_error %}
+<script>
+    $(document).ready(function () {
+        $("#modalLoginForm").modal('show');
+    });
+</script>
+{% endif %} {% if signUp_error %}
+<script>
+    $(document).ready(function () {
+        $("#modalSignUpForm").modal('show');
+    });
+</script>
+
+{% endif %}
+
+
+
+{%endblock%}
