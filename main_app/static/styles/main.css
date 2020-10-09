@@ -265,10 +265,13 @@ svg {
     /* Set the fixed height of the footer here */
     height: 79px;
     background-color: rgba(237, 41, 70, 0.952);
-    margin-block-end: -750px;
+    margin-block-end: -950px;
     text-shadow: 2px 1px 5px #000000e1;
 }
 
 .edit-section {
     margin: 10px;
+}
+.footer-text{
+    margin-top: 40px;
 }
