@@ -7,8 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 
-# import all at once
-#  from .models import Profile, Post, City
+
 from .models import Profile
 from .models import Post
 from .models import City
@@ -21,8 +20,6 @@ from .forms import EditProfileForm
 # Create your views here.
 
 # Home
-
-
 def home(request):
 
     return render(request, 'home.html')
